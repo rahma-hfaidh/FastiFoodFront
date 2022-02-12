@@ -13,4 +13,11 @@
        android:text="go to menu"
        android:id="@+id/goMenu"
       />
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:text="go to detail"
+       android:id="@+id/goDetail"
+       />
 </RelativeLayout>

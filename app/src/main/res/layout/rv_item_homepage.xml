@@ -7,18 +7,18 @@
     android:layout_height="wrap_content">
 <LinearLayout
     android:layout_width="wrap_content"
-    android:layout_height="190dp"
+    android:layout_height="120dp"
     android:orientation="vertical"
     tools:ignore="MissingConstraints">
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="10dp"
-        android:outlineAmbientShadowColor="@color/purple_200"
+
         android:contentDescription="my_pic"
         app:strokeColor="@color/teal_200"
-        app:strokeWidth="5dp"
+
         app:shapeAppearanceOverlay="@style/circular"
         android:src="@drawable/unnamed"/>
 

@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     Button gomenu;
+    Button godetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i =new Intent(getApplicationContext(),MenuActivity.class);
+                startActivity(i);
+
+            }
+        });
+        godetail=(Button)findViewById(R.id.goDetail);
+        godetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(),DetailProdActivity.class);
                 startActivity(i);
             }
         });
