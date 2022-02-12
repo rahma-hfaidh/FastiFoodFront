@@ -8,4 +8,9 @@
     <string name="menu">Menu</string>
     <string name="nos_repas">Nos repas</string>
     <string name="nos_desserts">Nos desserts</string>
+    <string name="tv_submit_cat">Choisir Catégorie</string>
+    <string name="tv_submit_unite">Ajouter au panier</string>
+    <string name="edt_nomprod">Entrer le nom de produit</string>
+    <string name="tv_ajoutProd">Ajouter Produit</string>
+    <string name="tv_catt">Vous douvez ajouter :</string>
 </resources>

@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button gomenu;
     Button godetail;
+    Button goadd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,5 +39,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        goadd=(Button) findViewById(R.id.goAddProd);
+        goadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(),CategorieActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

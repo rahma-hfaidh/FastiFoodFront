@@ -4,4 +4,11 @@
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
+    <style name="input_style" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/rectangle_orange_transparence</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:textSize">12dp</item>
+
+    </style>
 </resources>

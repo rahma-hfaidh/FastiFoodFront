@@ -16,8 +16,17 @@
    <Button
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
+       android:layout_below="@+id/goMenu"
        android:text="go to detail"
+       android:layout_centerInParent="true"
        android:id="@+id/goDetail"
+       />
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:layout_below="@+id/goDetail"
+       android:text="go to add"
+       android:id="@+id/goAddProd"
        />
 </RelativeLayout>
