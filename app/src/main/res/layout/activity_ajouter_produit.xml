@@ -7,6 +7,7 @@
     android:padding="20dp"
     tools:context=".AjouterProduitActivity">
 
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +19,7 @@
     <EditText
 
         android:id="@+id/edt_nomProd"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/edt_nomprod"
@@ -26,13 +27,78 @@
         app:layout_constraintTop_toBottomOf="@+id/img_back"
 
         />
+    <EditText
+
+        android:id="@+id/edt_prixProd"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/edt_prixProd"
+        style="@style/input_style"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nomProd"
+
+        />
+    <TextView
+        android:id="@+id/tv_catt"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_prixProd"
+        android:text="L'unité :"
+        tools:ignore="MissingConstraints" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_app_choice"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_catt"
+        app:layout_constraintTop_toBottomOf="@+id/tv_catt">
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/radioButton_unite1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:padding="15dp"
+                android:text="Grand" />
+
+            <RadioButton
+                android:id="@+id/radioButton_unite2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:padding="15dp"
+                android:text="Moyen" />
+
+            <RadioButton
+                android:id="@+id/radioButton_unite3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:padding="15dp"
+                android:text="Petit" />
+
+
+
+        </RadioGroup>
+    </RelativeLayout>
     <TextView
         android:id="@+id/tv_upload"
         android:layout_width="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nomProd"
+        app:layout_constraintTop_toBottomOf="@+id/rl_app_choice"
         android:text="Ajouter une image :"
         tools:ignore="MissingConstraints" />
     <ImageView

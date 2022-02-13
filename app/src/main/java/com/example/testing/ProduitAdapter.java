@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import retrofit.Call;
@@ -44,7 +46,8 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
         Produit produit=listProduit.get(position);
         ApiHandler api=ApiClient.getClient().create(ApiHandler.class);
         //Call<String> image = api.getPicture(produit.getId_prod());
-      //  holder.image.setImageURI(Uri.parse("http://localhost:5000/uploads/$image"));
+     Glide.with(context)
+               .load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
         holder.titre.setText(produit.getNomProd());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

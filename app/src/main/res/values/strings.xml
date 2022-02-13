@@ -13,4 +13,5 @@
     <string name="edt_nomprod">Entrer le nom de produit</string>
     <string name="tv_ajoutProd">Ajouter Produit</string>
     <string name="tv_catt">Vous douvez ajouter :</string>
+    <string name="edt_prixProd">Entrer le prix de produit</string>
 </resources>
