@@ -1,6 +1,7 @@
 package com.example.testing;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import retrofit.Call;
 
 public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitViewHolder> {
 
@@ -37,8 +40,11 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
     @Override
     public void onBindViewHolder(@NonNull ProduitViewHolder holder, int position) {
 
+
         Produit produit=listProduit.get(position);
-        holder.image.setImageResource(produit.getImageProd());
+        ApiHandler api=ApiClient.getClient().create(ApiHandler.class);
+        //Call<String> image = api.getPicture(produit.getId_prod());
+      //  holder.image.setImageURI(Uri.parse("http://localhost:5000/uploads/$image"));
         holder.titre.setText(produit.getNomProd());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

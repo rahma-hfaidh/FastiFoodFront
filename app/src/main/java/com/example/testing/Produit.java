@@ -3,14 +3,14 @@ package com.example.testing;
 public class Produit {
     public int id_prod;
     public String nomProd;
-    public int imageProd;
+    //public String imageProd;
     public int id_restau;
     public int id_cat;
 
-    public Produit(int id_prod, String nomProd, int imageProd, int id_restau, int id_cat) {
+    public Produit(int id_prod, String nomProd, int id_restau, int id_cat) {
         this.id_prod = id_prod;
         this.nomProd = nomProd;
-        this.imageProd = imageProd;
+       // this.imageProd = imageProd;
         this.id_restau = id_restau;
         this.id_cat = id_cat;
     }
@@ -34,13 +34,13 @@ public class Produit {
         this.nomProd = nomProd;
     }
 
-    public int getImageProd() {
+   /* public String getImageProd() {
         return imageProd;
     }
-
-    public void setImageProd(int imageProd) {
+    public void setImageProd(String imageProd) {
         this.imageProd = imageProd;
     }
+*/
 
     public int getId_restau() {
         return id_restau;
@@ -63,7 +63,6 @@ public class Produit {
         return "Produit{" +
                 "id_prod=" + id_prod +
                 ", nomProd='" + nomProd + '\'' +
-                ", imageProd='" + imageProd + '\'' +
                 ", id_restau=" + id_restau +
                 ", id_cat=" + id_cat +
                 '}';
