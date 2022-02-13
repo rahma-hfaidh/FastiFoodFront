@@ -13,5 +13,14 @@
     <string name="edt_nomprod">Entrer le nom de produit</string>
     <string name="tv_ajoutProd">Ajouter Produit</string>
     <string name="tv_catt">Vous douvez ajouter :</string>
+<<<<<<< Updated upstream
     <string name="edt_prixProd">Entrer le prix de produit</string>
+=======
+    <string-array name="array_status">
+        <item>en attent</item>
+        <item>accepté</item>
+        <item>refusé</item>
+
+    </string-array>
+>>>>>>> Stashed changes
 </resources>

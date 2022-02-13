@@ -3,16 +3,18 @@ package com.example.testing;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CommandeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class CommandeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -24,19 +26,18 @@ public class CommandeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    // recyclerview
+
+    private RecyclerView rv_com;
+    private RecyclerView.LayoutManager layoutManager;
+    private ComAdapter comAdapter;
+
+
     public CommandeFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CommandeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static CommandeFragment newInstance(String param1, String param2) {
         CommandeFragment fragment = new CommandeFragment();
         Bundle args = new Bundle();
@@ -59,6 +60,54 @@ public class CommandeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_commande, container, false);
+        View v = inflater.inflate(R.layout.fragment_commande, container, false);
+
+
+        //Repas
+
+        List<commande> listCom = new ArrayList<>();
+        listCom.add(new commande(1, "9 rue kahra tunis", 1,500, "en attent","en cours","date","a livraison"));
+        listCom.add(new commande(1, "10 rue kahra marsa", 1, 250, "accepté","en cours","date","a livraison"));
+        listCom.add(new commande(1, "11 rue kahra ben arous", 1, 1, "en attent","en cours","date","a livraison"));
+        listCom.add(new commande(1, "2 rue kahra ariana", 1, 100, "refusé","en cours","date","a livraison"));
+
+
+        // on récupére notre Recyclerview via son id
+        rv_com = v.findViewById(R.id.rv_com);
+        //on veut un recyclerview qui utilise un linearlayoutManager
+        layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+        rv_com.setLayoutManager(layoutManager);
+        //on donne notre adapter à notre recyclerview
+        comAdapter = new ComAdapter(listCom, getContext());
+        rv_com.setAdapter(comAdapter);
+        //on sépare chaque ligne de notre liste par un trait
+        /*
+        DividerItemDecoration dividerItemDecoration;
+        dividerItemDecoration = new DividerItemDecoration(rv_com.getContext(), DividerItemDecoration.VERTICAL);
+        rv_com.addItemDecoration(dividerItemDecoration);
+        */
+        return v;
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

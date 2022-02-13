@@ -3,10 +3,15 @@ package com.example.testing;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +28,9 @@ public class FavoriesFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private RecyclerView rv_comR;
+    private RecyclerView.LayoutManager layoutManager;
+    private comRAdapter comRAdapter;
     public FavoriesFragment() {
         // Required empty public constructor
     }
@@ -55,10 +62,46 @@ public class FavoriesFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favories, container, false);
+        View v= inflater.inflate(R.layout.fragment_favories, container, false);
+
+
+
+        //Repas
+
+        List<commande> listCom = new ArrayList<>();
+        listCom.add(new commande(1, "9 rue kahra tunis", 1,50, "en attent","en cours","date","a livraison"));
+        listCom.add(new commande(1, "10 rue kahra marsa", 1, 250, "accepté","en cours","date","a livraison"));
+        listCom.add(new commande(1, "11 rue kahra ben arous", 1, 1, "en attent","en cours","date","a livraison"));
+        listCom.add(new commande(1, "2 rue kahra ariana", 1, 100, "refusé","en cours","date","a livraison"));
+
+
+        // on récupére notre Recyclerview via son id
+        rv_comR = v.findViewById(R.id.rv_comR);
+        //on veut un recyclerview qui utilise un linearlayoutManager
+        layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+        rv_comR.setLayoutManager(layoutManager);
+        //on donne notre adapter à notre recyclerview
+        comRAdapter = new comRAdapter(listCom, getContext());
+        rv_comR.setAdapter(comRAdapter);
+        return  v;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
