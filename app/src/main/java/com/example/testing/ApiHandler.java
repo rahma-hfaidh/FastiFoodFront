@@ -23,7 +23,7 @@ public interface ApiHandler {
     @GET("produit/images/:id_prod")
     Call<String> getPicture(@Field("id_prod") int id_prod);
 
-  
+
 
 
 }
