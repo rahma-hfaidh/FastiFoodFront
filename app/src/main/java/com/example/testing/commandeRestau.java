@@ -1,26 +1,33 @@
 package com.example.testing;
 
-import java.util.Date;
-
-public class commande {
+public class commandeRestau {
     public int id_fact;
     public String adresse;
     public int id_client;
     public double somme_fact;
+    public String reponse;
     public String status;
     public String date;
     public String mode_payement;
 
 
-    public commande(int id_fact, String adresse, int id_client, double somme_fact,  String status,String date, String mode_payement) {
+    public commandeRestau(int id_fact, String adresse, int id_client, double somme_fact,String reponse,  String status,String date, String mode_payement) {
         this.id_fact = id_fact;
         this.adresse = adresse;
         this.id_client = id_client;
         this.somme_fact = somme_fact;
-
+        this.reponse=reponse;
         this.status = status;
         this.date=date;
         this.mode_payement = mode_payement;
+    }
+
+    public String getReponse() {
+        return reponse;
+    }
+
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
     }
 
     public String getDate() {
