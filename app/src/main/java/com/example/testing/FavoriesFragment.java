@@ -73,11 +73,11 @@ public class FavoriesFragment extends Fragment {
 
         //Repas
 
-        List<commande> listCom = new ArrayList<>();
-        listCom.add(new commande(1, "9 rue kahra tunis", 1,50, "en attent","en cours","date","a livraison"));
-        listCom.add(new commande(1, "10 rue kahra marsa", 1, 250, "accepté","en cours","date","a livraison"));
-        listCom.add(new commande(1, "11 rue kahra ben arous", 1, 1, "en attent","en cours","date","a livraison"));
-        listCom.add(new commande(1, "2 rue kahra ariana", 1, 100, "refusé","en cours","date","a livraison"));
+        List<commandeRestau> listCom = new ArrayList<>();
+        listCom.add(new commandeRestau(1, "9 rue kahra tunis", 1,50, "en attent","en cours","12/10/2020","à livré"));
+        listCom.add(new commandeRestau(1, "10 rue kahra marsa", 1, 250, "en attent","en cours","07/12/2020","à livré"));
+        listCom.add(new commandeRestau(1, "11 rue kahra ben arous", 1, 1, "en attent","en cours","18/10/2020","à livré"));
+        listCom.add(new commandeRestau(1, "2 rue kahra ariana", 1, 100, "en attent","en cours","17/09/2020","à livré"));
 
 
         // on récupére notre Recyclerview via son id
@@ -88,6 +88,8 @@ public class FavoriesFragment extends Fragment {
         //on donne notre adapter à notre recyclerview
         comRAdapter = new comRAdapter(listCom, getContext());
         rv_comR.setAdapter(comRAdapter);
+
+
         return  v;
 
 

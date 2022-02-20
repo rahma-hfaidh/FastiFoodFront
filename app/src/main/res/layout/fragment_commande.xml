@@ -15,6 +15,14 @@
 
         android:background="@drawable/rectangle_top"
            >
+        <Spinner
+            android:id="@+id/rl_submit_catR"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/attent"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

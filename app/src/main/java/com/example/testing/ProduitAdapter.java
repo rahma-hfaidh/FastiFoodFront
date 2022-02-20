@@ -1,6 +1,8 @@
 package com.example.testing;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 import retrofit.Call;
@@ -42,13 +49,20 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
 
     @Override
     public void onBindViewHolder(@NonNull ProduitViewHolder holder, int position) {
-
+        final Bitmap[] bmp = new Bitmap[1];
 
         Produit produit=listProduit.get(position);
         ApiHandler api=ApiClient.getClient().create(ApiHandler.class);
         //Call<String> image = api.getPicture(produit.getId_prod());
-        Picasso.get().load("http://localhost:5000/uploads/tartes.jpg").into(holder.image);
-   //  Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
+
+
+
+
+
+                //("http://localhost:5000/uploads/tartes.jpg"));
+
+       Picasso.get().load("http://172.16.21.123:5000/uploads/lion.jpg").into(holder.image);
+        //Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
         holder.titre.setText(produit.getNomProd());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,4 +88,5 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
 
         }
     }
+
 }
