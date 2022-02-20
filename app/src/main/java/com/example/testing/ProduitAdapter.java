@@ -1,8 +1,12 @@
 package com.example.testing;
 
 import android.content.Context;
+<<<<<<< Updated upstream
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+=======
+import android.graphics.drawable.Drawable;
+>>>>>>> Stashed changes
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +58,7 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
         Produit produit=listProduit.get(position);
         ApiHandler api=ApiClient.getClient().create(ApiHandler.class);
         //Call<String> image = api.getPicture(produit.getId_prod());
+<<<<<<< Updated upstream
 
 
 
@@ -63,6 +68,11 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
 
        Picasso.get().load("http://172.16.21.123:5000/uploads/lion.jpg").into(holder.image);
         //Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
+=======
+       // holder.image.setImageDrawable(Drawable.createFromPath("http://localhost:5000/uploads/tartes"));
+        Picasso.get().load("https://192.168.43.19:5000/uploads/tartes.jpg").into(holder.image);
+   //  Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
+>>>>>>> Stashed changes
         holder.titre.setText(produit.getNomProd());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
