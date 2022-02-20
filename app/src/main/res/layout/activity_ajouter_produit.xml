@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/edt_nomprod"
+        android:text="HO"
         style="@style/input_style"
         app:layout_constraintTop_toBottomOf="@+id/img_back"
 
@@ -34,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/edt_prixProd"
+        android:text="HO"
         style="@style/input_style"
         app:layout_constraintTop_toBottomOf="@+id/edt_nomProd"
 
@@ -57,72 +59,21 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_catt">
 
 
-        <RadioGroup
-            android:id="@+id/radioGroup_character"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
 
-            <RadioButton
-                android:id="@+id/radioButton_unite1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gray"
-                android:padding="15dp"
-                android:text="Grand" />
-
-            <RadioButton
-                android:id="@+id/radioButton_unite2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gray"
-                android:padding="15dp"
-                android:text="Moyen" />
-
-            <RadioButton
-                android:id="@+id/radioButton_unite3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gray"
-                android:padding="15dp"
-                android:text="Petit" />
-
-
-
-        </RadioGroup>
     </RelativeLayout>
-    <TextView
-        android:id="@+id/tv_upload"
-        android:layout_width="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/rl_app_choice"
-        android:text="Ajouter une image :"
-        tools:ignore="MissingConstraints" />
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:id="@+id/img_upload"
-        android:src="@drawable/ic_upload"
-       app:layout_constraintTop_toBottomOf="@+id/tv_upload"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="30dp"
-        />
+
     <RelativeLayout
-        android:id="@+id/rl_submit_cat"
+        android:id="@+id/rl_submit_prod"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/rectange_gradient"
-        app:layout_constraintTop_toBottomOf="@+id/img_upload"
+        app:layout_constraintTop_toBottomOf="@+id/rl_app_choice"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_ajoutProd"
+            android:text="@string/tv_chImage"
             android:textSize="15sp"
             android:layout_centerInParent="true"
             android:textColor="@color/white"/>

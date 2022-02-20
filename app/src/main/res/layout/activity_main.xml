@@ -29,4 +29,13 @@
        android:text="go to add"
        android:id="@+id/goAddProd"
        />
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:layout_below="@+id/goAddProd"
+       android:text="test"
+       android:id="@+id/goTest"
+       />
+
 </RelativeLayout>

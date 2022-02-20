@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button gomenu;
     Button godetail;
-    Button goadd;
+    Button goadd,goTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i =new Intent(getApplicationContext(),CategorieActivity.class);
+                startActivity(i);
+            }
+        });
+        goTest=(Button) findViewById(R.id.goTest);
+        goTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(),TestActivity.class);
                 startActivity(i);
             }
         });
