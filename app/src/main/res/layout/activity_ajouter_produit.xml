@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/edt_nomprod"
-        android:text="HO"
         style="@style/input_style"
         app:layout_constraintTop_toBottomOf="@+id/img_back"
 
@@ -35,7 +34,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/edt_prixProd"
-        android:text="HO"
         style="@style/input_style"
         app:layout_constraintTop_toBottomOf="@+id/edt_nomProd"
 

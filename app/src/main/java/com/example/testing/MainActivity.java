@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         goTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(getApplicationContext(),TestActivity.class);
+                Intent i =new Intent(getApplicationContext(),AcceptRefuseActivity.class);
                 startActivity(i);
             }
         });

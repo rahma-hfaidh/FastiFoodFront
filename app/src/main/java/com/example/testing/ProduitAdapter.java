@@ -1,13 +1,12 @@
 package com.example.testing;
 
 import android.content.Context;
-<<<<<<< Updated upstream
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-=======
 import android.graphics.drawable.Drawable;
->>>>>>> Stashed changes
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +28,9 @@ import java.net.URL;
 import java.util.List;
 
 import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitViewHolder> {
 
@@ -57,22 +59,25 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
 
         Produit produit=listProduit.get(position);
         ApiHandler api=ApiClient.getClient().create(ApiHandler.class);
-        //Call<String> image = api.getPicture(produit.getId_prod());
-<<<<<<< Updated upstream
+        Call<String> pic = api.getPicture(produit.getId_prod());
+        pic.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Response<String> response, Retrofit retrofit) {
+                String picture=response.body();
+
+                // holder.image.setImageDrawable(Drawable.createFromPath("http://localhost:5000/uploads/tartes"));
+                Picasso.get().load("http://172.20.10.2:5000/uploads/"+picture).into(holder.image);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.d(" fl", "failed");
+            }
+        });
 
 
+        //  Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
 
-
-
-                //("http://localhost:5000/uploads/tartes.jpg"));
-
-       Picasso.get().load("http://172.16.21.123:5000/uploads/lion.jpg").into(holder.image);
-        //Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
-=======
-       // holder.image.setImageDrawable(Drawable.createFromPath("http://localhost:5000/uploads/tartes"));
-        Picasso.get().load("https://192.168.43.19:5000/uploads/tartes.jpg").into(holder.image);
-   //  Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
->>>>>>> Stashed changes
         holder.titre.setText(produit.getNomProd());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

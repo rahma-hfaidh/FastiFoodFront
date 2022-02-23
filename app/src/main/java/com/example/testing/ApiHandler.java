@@ -7,6 +7,7 @@ import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Query;
 
 public interface ApiHandler {
 
@@ -19,9 +20,9 @@ public interface ApiHandler {
     @GET("produit/GetAllBoissons")
     Call<List<Produit>> getAllBoissons();
 
-    @FormUrlEncoded
+
     @GET("produit/images/:id_prod")
-    Call<String> getPicture(@Field("id_prod") int id_prod);
+    Call<String> getPicture(@Query("id_prod") int id_prod);
 
 
 

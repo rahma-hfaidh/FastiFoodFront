@@ -16,6 +16,8 @@
 
     <string name="edt_prixProd">Entrer le prix de produit</string>
     <string name="tv_chImage">Choisir Image</string>
+    <string name="tv_comacc">Commandes Acceptés</string>
+    <string name="tv_comref">Commandes Refusés</string>
     <string-array name="array_status">
         <item>en attent</item>
         <item>accepté</item>

@@ -2,18 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.testing">
 
-<<<<<<< Updated upstream
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-=======
     <uses-feature
         android:name="android.hardware.camera2"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera2.params"
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
->>>>>>> Stashed changes
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -27,10 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
-<<<<<<< Updated upstream
-        <activity android:name=".DetailFacteur"></activity>
-=======
-        <activity android:name=".UploadImageActivity"></activity>
+        <activity android:name=".AcceptRefuseActivity"></activity>
+        <activity android:name=".DetailFacteur" />
+        <activity android:name=".UploadImageActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -43,7 +40,6 @@
         </provider>
 
         <activity android:name=".TestActivity" />
->>>>>>> Stashed changes
         <activity android:name=".AjouterProduitActivity" />
         <activity android:name=".CategorieActivity" />
         <activity android:name=".DetailProdActivity" />
