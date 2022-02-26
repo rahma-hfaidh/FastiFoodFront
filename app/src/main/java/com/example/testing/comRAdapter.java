@@ -14,7 +14,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
+import retrofit2.Call;
 
 public class comRAdapter extends RecyclerView.Adapter<comRAdapter.ComViewHolder>{
 
@@ -41,31 +48,58 @@ public class comRAdapter extends RecyclerView.Adapter<comRAdapter.ComViewHolder>
 
         commandeRestau com = listCom.get(position);
         holder.modepaye.setText(com.getMode_payement());
-        holder.date.setText(com.getDate());
+        holder.date.setText(com.getDate().substring(0,10));
         holder.somme_com.setText(Double.toString(com.getSomme_fact()));
         holder.adresse.setText(com.getAdresse());
         holder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-
-                    String repo = String.valueOf(holder.spinner.getSelectedItem());
-                    // com.setReponse(String.valueOf(adapter.getItem(position)));
-                    if(position==0) {
-                        holder.spinner.setBackgroundResource(R.drawable.attent);
-                        Toast.makeText(context, "Selected : " + repo, Toast.LENGTH_SHORT).show();
-                    }
-                if(position==1) {
+                String chaine;
+                String repo = String.valueOf(holder.spinner.getSelectedItem());
+                // com.setReponse(String.valueOf(adapter.getItem(position)));
+                if (position == 0) {
+                    holder.spinner.setBackgroundResource(R.drawable.attent);
+                    chaine="en attent";
+                    Toast.makeText(context, "Selected : " + repo, Toast.LENGTH_SHORT).show();
+                }
+                if (position == 1) {
+                    chaine="accepté";
                     holder.spinner.setBackgroundResource(R.drawable.accept);
                     Toast.makeText(context, "Selected : " + repo, Toast.LENGTH_SHORT).show();
                 }
-                if(position==2) {
+                if (position == 2) {
+                    chaine="refusé";
                     holder.spinner.setBackgroundResource(R.drawable.refuse);
                     Toast.makeText(context, "Selected : " + repo, Toast.LENGTH_SHORT).show();
                 }
-                }
+              /*   ApiComR api = ApiClient.getClient().create(ApiComR.class);
+                Call<ResponseBody> rep = api.putRep(com.getId_fact(), chaine);
+                System.out.println(rep);
+
+                rep.enqueue(new Callback<ResponseBody>() {
+
+                    @Override
+                    public void onResponse(Response<ResponseBody> response, Retrofit retrofit) {
+
+                                System.out.println("reppppppppppppppppppppp ");
+
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+
+                    }
+                });
+
+
+
+                */
+
+
+            }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

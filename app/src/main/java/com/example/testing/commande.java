@@ -1,5 +1,7 @@
 package com.example.testing;
 
+import android.icu.text.DateFormat;
+
 import java.util.Date;
 
 public class commande {
@@ -19,6 +21,7 @@ public class commande {
         this.somme_fact = somme_fact;
 
         this.status = status;
+
         this.date=date;
         this.mode_payement = mode_payement;
     }

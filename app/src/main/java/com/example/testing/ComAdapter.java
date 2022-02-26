@@ -45,7 +45,7 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
 
         commande com = listCom.get(position);
         holder.modepaye.setText(com.getMode_payement());
-        holder.date.setText(com.getDate());
+        holder.date.setText(com.getDate().substring(0,10));
         holder.somme_com.setText(Double.toString(com.getSomme_fact()));
         holder.adresse.setText(com.getAdresse());
         holder.status.setText(com.getStatus());
@@ -55,6 +55,7 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
                 Toast.makeText(context, listCom.get(position).getAdresse(), Toast.LENGTH_LONG).show();
                 Intent intent =new Intent(context,DetailFacteur.class);
                 context.startActivity(intent);
+
 
 
 
@@ -79,7 +80,6 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
         TextView  somme_com;
         TextView date;
         TextView modepaye;
-        ImageView annuler;
 
         public ComViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,38 +90,7 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
             adresse = itemView.findViewById(R.id.adresse);
             date = itemView.findViewById(R.id.date);
             somme_com = itemView.findViewById(R.id.somme_com);
-             annuler= itemView.findViewById(R.id.ann);
-            annuler.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final Dialog dialog = new Dialog(context);
-                    dialog.setContentView(R.layout.alert_annuler);
-                    Button dialogButton = (Button) dialog.findViewById(R.id.cancel2);
-                    Button dialogButtonA = (Button) dialog.findViewById(R.id.confirm2);
 
-                    // if button is clicked, close the custom dialog
-                    dialogButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            Toast.makeText(context,"Cancel..!!",Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    // if button is clicked, close the custom dialog
-
-                    // if button is clicked, close the custom dialog
-                    dialogButtonA.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            Toast.makeText(context,"Confirm..",Toast.LENGTH_LONG).show();
-                            //startActivity(new Intent(PlantsActivity.this, PayementActivity.class));
-                        }
-                    });
-                    dialog.show();
-
-                }
-            });
         }
 
     }

@@ -3,6 +3,7 @@ package com.example.testing;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,17 +11,29 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
+
+import static android.content.Context.MODE_PRIVATE;
+import static android.os.ParcelFileDescriptor.MODE_APPEND;
+import static android.os.ParcelFileDescriptor.MODE_CREATE;
 
 public class CommandeFragment extends Fragment {
 
@@ -40,7 +53,7 @@ public class CommandeFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private ComAdapter comAdapter;
     private Spinner spinner;
-
+ private int id_facteur ;
     public CommandeFragment() {
         // Required empty public constructor
     }
@@ -73,23 +86,59 @@ public class CommandeFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        //Repas
 
+        ApiCom api = ApiClient.getClient().create(ApiCom.class);
+        Call<List<commande>> listComByClient = api.getFactByIdClient(1);
+
+        listComByClient.enqueue(new Callback<List<commande>>() {
+            @Override
+            public void onResponse(Response<List<commande>> response, Retrofit retrofit) {
+                List<commande> listcom = new ArrayList<commande>();
+                if(response.isSuccess())
+                {
+                    listcom =(List<commande>) response.body();
+                    System.out.println("liste facteur "+listcom);
+
+
+                    //int length= listcom.size();
+                    // on récupére notre Recyclerview via son id
+                    rv_com = v.findViewById(R.id.rv_com);
+                    //on veut un recyclerview qui utilise un linearlayoutManager
+                    layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+                    rv_com.setLayoutManager(layoutManager);
+                    //on donne notre adapter à notre recyclerview
+                    comAdapter = new ComAdapter(listcom, getContext());
+                    rv_com.setAdapter(comAdapter);
+ /*                   for (int i=0; i<length; i++)
+                    {
+
+                        rb= new RadioButton(getContext());
+                        rb.setText(listcom.get(i).mode_payement());
+                        rb.setId(listcom.get(i).getId_unite());
+                        rg.addView(rb);
+
+
+                    } */
+                }
+              //  rg.setOrientation(RadioGroup.HORIZONTAL);
+              //  rl_app_choice.addView(rg);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+        //Repas
+/*
         List<commande> listCom = new ArrayList<>();
         listCom.add(new commande(1, "9 rue kahra tunis", 1,500,"en cours","12/10/2020","à livré"));
         listCom.add(new commande(1, "10 rue kahra marsa", 1, 250,"en cours","12/11/2020","à livré"));
         listCom.add(new commande(1, "11 rue kahra ben arous", 1, 1, "en cours","10/10/2020","à livré"));
         listCom.add(new commande(1, "2 rue kahra ariana", 1, 100, "en cours","12/08/2020","à livré"));
 
+*/
 
-        // on récupére notre Recyclerview via son id
-        rv_com = v.findViewById(R.id.rv_com);
-        //on veut un recyclerview qui utilise un linearlayoutManager
-        layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        rv_com.setLayoutManager(layoutManager);
-        //on donne notre adapter à notre recyclerview
-        comAdapter = new ComAdapter(listCom, getContext());
-        rv_com.setAdapter(comAdapter);
 
 
 

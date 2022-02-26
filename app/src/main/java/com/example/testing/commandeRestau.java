@@ -1,21 +1,20 @@
 package com.example.testing;
 
 public class commandeRestau {
-    public int id_fact;
+    public int id_com;
     public String adresse;
     public int id_client;
-    public double somme_fact;
+    public double somme_com;
     public String reponse;
     public String status;
     public String date;
     public String mode_payement;
 
-
     public commandeRestau(int id_fact, String adresse, int id_client, double somme_fact,String reponse,  String status,String date, String mode_payement) {
-        this.id_fact = id_fact;
+        this.id_com = id_fact;
         this.adresse = adresse;
         this.id_client = id_client;
-        this.somme_fact = somme_fact;
+        this.somme_com = somme_fact;
         this.reponse=reponse;
         this.status = status;
         this.date=date;
@@ -39,11 +38,11 @@ public class commandeRestau {
     }
 
     public int getId_fact() {
-        return id_fact;
+        return id_com;
     }
 
     public void setId_fact(int id_com) {
-        this.id_fact = id_com;
+        this.id_com = id_com;
     }
 
     public String getAdresse() {
@@ -63,11 +62,11 @@ public class commandeRestau {
     }
 
     public double getSomme_fact() {
-        return somme_fact;
+        return somme_com;
     }
 
     public void setSomme_com(double somme_com) {
-        this.somme_fact = somme_com;
+        this.somme_com = somme_com;
     }
 
     public String getStatus() {
@@ -89,13 +88,15 @@ public class commandeRestau {
     @Override
     public String toString() {
         return "commande{" +
-                "id_com=" + id_fact +
+                "id_com=" + id_com +
                 ", adresse='" + adresse + '\'' +
                 ", id_client=" + id_client +
-                ", somme_com=" + somme_fact +
+                ", somme_com=" + somme_com +
                 ", status='" + status + '\'' +
                 ", date='" + date + '\'' +
                 ", mode_payement='" + mode_payement + '\'' +
                 '}';
+
+
     }
 }
