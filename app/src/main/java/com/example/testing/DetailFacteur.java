@@ -25,15 +25,18 @@ public class DetailFacteur extends AppCompatActivity {
     private RecyclerView rv_dfact;
     private RecyclerView.LayoutManager layoutManager;
     private DfactAdapter dfactAdapter;
-
+int id_fact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_facteur);
+        Bundle extras = getIntent().getExtras();
+        id_fact= extras.getInt("id_fact");
+
 
 
         ApiDfact api = ApiClient.getClient().create(ApiDfact.class);
-        Call<List<Dfacteur>> listComByF = api.getComtByIdFact(2);
+        Call<List<Dfacteur>> listComByF = api.getComtByIdFact(id_fact);
         System.out.println("listeeee " + listComByF);
         listComByF.enqueue(new Callback<List<Dfacteur>>() {
             @Override
@@ -73,4 +76,11 @@ public class DetailFacteur extends AppCompatActivity {
 
         });
     }
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+    }
+
 }

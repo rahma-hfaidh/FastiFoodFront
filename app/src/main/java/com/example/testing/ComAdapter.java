@@ -49,11 +49,14 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
         holder.somme_com.setText(Double.toString(com.getSomme_fact()));
         holder.adresse.setText(com.getAdresse());
         holder.status.setText(com.getStatus());
+        holder.heure.setText(com.getHeure());
+        holder.etat.setText(com.getEtat());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, listCom.get(position).getAdresse(), Toast.LENGTH_LONG).show();
                 Intent intent =new Intent(context,DetailFacteur.class);
+                intent.putExtra("id_fact",com.getId_fact());
                 context.startActivity(intent);
 
 
@@ -80,12 +83,15 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
         TextView  somme_com;
         TextView date;
         TextView modepaye;
+        TextView heure;
+        TextView etat;
 
         public ComViewHolder(@NonNull View itemView) {
             super(itemView);
             modepaye=itemView.findViewById(R.id.modepaye);
             status = itemView.findViewById(R.id.status);
-
+            heure=itemView.findViewById(R.id.heure);
+            etat=itemView.findViewById(R.id.etat);
 
             adresse = itemView.findViewById(R.id.adresse);
             date = itemView.findViewById(R.id.date);

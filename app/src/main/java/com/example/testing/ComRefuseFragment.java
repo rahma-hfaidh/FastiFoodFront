@@ -70,8 +70,8 @@ public class ComRefuseFragment extends Fragment {
 
 
         List<commande> listCom = new ArrayList<>();
-        listCom.add(new commande(1, "9 rue kahra tunis", 1,500,"en cours","12/10/2020","à livré"));
-        listCom.add(new commande(1, "10 rue kahra marsa", 1, 250,"en cours","12/11/2020","à livré"));
+        listCom.add(new commande(1, "9 rue kahra tunis", 1,500,"en cours","12/10/2020","à livré","patiel","12:00h"));
+        listCom.add(new commande(1, "10 rue kahra marsa", 1, 250,"en cours","12/11/2020","à livré","partiel","13:30h"));
 
 
         // on récupére notre Recyclerview via son id

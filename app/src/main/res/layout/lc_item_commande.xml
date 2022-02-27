@@ -50,6 +50,14 @@
             android:layout_toRightOf="@+id/somme_com"
             />
         <TextView
+            android:id="@+id/etat"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginRight="70dp"
+            android:layout_toLeftOf="@id/status"
+            android:text="partiel"
+            />
+        <TextView
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
@@ -64,6 +72,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12/04/1999"
+            android:textSize="18sp"
+            android:layout_alignParentRight="true"
+            />
+        <TextView
+            android:id="@+id/heure"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:30h"
             android:textSize="18sp"
             android:layout_alignParentRight="true"
             />

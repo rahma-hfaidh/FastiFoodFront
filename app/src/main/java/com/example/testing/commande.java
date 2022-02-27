@@ -12,18 +12,40 @@ public class commande {
     public String status;
     public String date;
     public String mode_payement;
+    public String etat;
+    public String heure;
 
-
-    public commande(int id_fact, String adresse, int id_client, double somme_fact,  String status,String date, String mode_payement) {
+    public commande(int id_fact, String adresse, int id_client, double somme_fact,  String status,String date, String mode_payement,String etat, String heure) {
         this.id_fact = id_fact;
         this.adresse = adresse;
         this.id_client = id_client;
         this.somme_fact = somme_fact;
 
         this.status = status;
-
+        this.etat=etat;
+        this.heure= heure;
         this.date=date;
         this.mode_payement = mode_payement;
+    }
+
+    public void setSomme_fact(double somme_fact) {
+        this.somme_fact = somme_fact;
+    }
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+
+    public String getHeure() {
+        return heure;
+    }
+
+    public void setHeure(String heure) {
+        this.heure = heure;
     }
 
     public String getDate() {
