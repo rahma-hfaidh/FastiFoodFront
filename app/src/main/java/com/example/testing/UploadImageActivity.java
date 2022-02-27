@@ -312,7 +312,9 @@ public class UploadImageActivity extends AppCompatActivity implements View.OnCli
                         textView.setTextColor(Color.BLUE);
                     }
 
-                    Toast.makeText(getApplicationContext(), response.code() + " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),  " Image ajoutée !!", Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(getApplicationContext(),CategorieActivity.class);
+                    startActivity(i);
                 }
 
                 @Override

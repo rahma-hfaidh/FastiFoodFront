@@ -16,17 +16,19 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
 public class AjouterProduitActivity extends AppCompatActivity {
+    public int id_restau=1;
     public int id_cat,id_unite;
     ImageView imgBack;
     EditText edt_nomProd,edt_prixProd;
-    String nomProd,prixProd;
-    String name="ggggg";
+    String nomProd,prixProduit;
+    float prixProd;
     RelativeLayout rl_app_choice,rl_submit_prod;
     RadioGroup rg;
     RadioButton rb;
@@ -123,7 +125,24 @@ public class AjouterProduitActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 nomProd= edt_nomProd.getText().toString();
-                prixProd= edt_prixProd.getText().toString();
+                prixProduit= edt_prixProd.getText().toString();
+                prixProd = Float.parseFloat(prixProduit);
+
+                ApiProduit api = ApiClient.getClient().create(ApiProduit.class);
+                Call<String> postProd = (Call<String>) api.postProduit(nomProd,id_restau,id_cat,prixProd,id_unite);
+                postProd.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Response<String> response, Retrofit retrofit) {
+                        Toast.makeText(getApplicationContext(),"Produit ajouté ", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        Toast.makeText(getApplicationContext(),"Produit ajouté !", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(),"Probléme lors de l ajout ", Toast.LENGTH_LONG).show();
+                    }
+                });
+
                 Intent i = new Intent(getApplicationContext(),UploadImageActivity.class);
                 startActivity(i);
             }

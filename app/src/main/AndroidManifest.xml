@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.testing">
-
-
-
-
     <uses-feature
         android:name="android.hardware.camera2"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera2.params"
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,6 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".DetailFacteur"></activity>
         <activity android:name=".UploadImageActivity"></activity>
 
