@@ -95,6 +95,7 @@ public class ComRefuseFragment extends Fragment {
             @Override
             public void onFailure(Throwable t) {
 
+
             }
         });
 

@@ -51,7 +51,14 @@
             android:layout_marginTop="20dp"
             android:text="en attent"
             />
-
+        <ImageView
+            android:id="@+id/annD"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/rep"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:src="@drawable/annuler"/>
 
     </RelativeLayout>
 

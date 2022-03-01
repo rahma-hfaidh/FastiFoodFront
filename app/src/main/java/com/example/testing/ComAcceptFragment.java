@@ -103,7 +103,6 @@ public class ComAcceptFragment extends Fragment {
 
 
 
-
         return v;
     }
 }

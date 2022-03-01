@@ -4,17 +4,18 @@ package com.example.testing;
 public class Dfacteur {
 
     public int id_com;
-    public String nomRestau;
+    public double  somme_com;
     public  String reponse;
-    public double  somme_Dfacteur;
-    int logo;
+    public String nomRestau;
+    String logo;
     public  int id_fact;
 
-    public Dfacteur(int id_com, String nomRestau, String reponse, double somme_Dfacteur, int logo, int id_fact) {
+
+    public Dfacteur(int id_com, double somme_Dfacteur, String reponse, String nomRestau, String logo, int id_fact) {
         this.id_com = id_com;
         this.nomRestau = nomRestau;
         this.reponse = reponse;
-        this.somme_Dfacteur = somme_Dfacteur;
+        this.somme_com = somme_Dfacteur;
         this.logo = logo;
         this.id_fact = id_fact;
     }
@@ -44,18 +45,18 @@ public class Dfacteur {
     }
 
     public double getSomme_Dfacteur() {
-        return somme_Dfacteur;
+        return somme_com;
     }
 
     public void setSomme_Dfacteur(double somme_Dfacteur) {
-        this.somme_Dfacteur = somme_Dfacteur;
+        this.somme_com = somme_Dfacteur;
     }
 
-    public int getLogo() {
+    public String getLogo() {
         return logo;
     }
 
-    public void setLogo(int logo) {
+    public void setLogo(String logo) {
         this.logo = logo;
     }
 

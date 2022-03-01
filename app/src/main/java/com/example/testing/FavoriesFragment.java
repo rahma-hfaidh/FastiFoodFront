@@ -13,6 +13,11 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FavoriesFragment#newInstance} factory method to
@@ -31,6 +36,7 @@ public class FavoriesFragment extends Fragment {
     private RecyclerView rv_comR;
     private RecyclerView.LayoutManager layoutManager;
     private comRAdapter comRAdapter;
+
     public FavoriesFragment() {
         // Required empty public constructor
     }
@@ -67,9 +73,22 @@ public class FavoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_favories, container, false);
+        View v = inflater.inflate(R.layout.fragment_favories, container, false);
+
+        ApiComR api = ApiClient.getClient().create(ApiComR.class);
+        Call<List<commandeRestau>> listComByRes = api.getFactByIdRestau(2);
+        System.out.println(listComByRes);
+        listComByRes.enqueue(new Callback<List<commandeRestau>>() {
+            @Override
+            public void onResponse(Response<List<commandeRestau>> response, Retrofit retrofit) {
+                List<commandeRestau> listCom = new ArrayList<commandeRestau>();
+                if (response.isSuccess()) {
+                    listCom = (List<commandeRestau>) response.body();
+                    System.out.println("liste commande restau " + listCom);
 
 
+
+/*
 
         //Repas
 
@@ -79,30 +98,26 @@ public class FavoriesFragment extends Fragment {
         listCom.add(new commandeRestau(1, "11 rue kahra ben arous", 1, 1, "en attent","en cours","18/10/2020","à livré"));
         listCom.add(new commandeRestau(1, "2 rue kahra ariana", 1, 100, "en attent","en cours","17/09/2020","à livré"));
 
+*/
+                    // on récupére notre Recyclerview via son id
+                    rv_comR = v.findViewById(R.id.rv_comR);
+                    //on veut un recyclerview qui utilise un linearlayoutManager
+                    layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+                    rv_comR.setLayoutManager(layoutManager);
+                    //on donne notre adapter à notre recyclerview
+                    comRAdapter = new comRAdapter(listCom, getContext());
+                    rv_comR.setAdapter(comRAdapter);
 
-        // on récupére notre Recyclerview via son id
-        rv_comR = v.findViewById(R.id.rv_comR);
-        //on veut un recyclerview qui utilise un linearlayoutManager
-        layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        rv_comR.setLayoutManager(layoutManager);
-        //on donne notre adapter à notre recyclerview
-        comRAdapter = new comRAdapter(listCom, getContext());
-        rv_comR.setAdapter(comRAdapter);
+                }
 
+            }
 
-        return  v;
+            @Override
+            public void onFailure(Throwable t) {
 
-
-
-
-
-
-
-
-
-
-
-
+            }
+        });
+        return v;
 
 
     }

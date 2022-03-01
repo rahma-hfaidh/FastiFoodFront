@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -59,6 +60,11 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
 
         Produit produit=listProduit.get(position);
         ApiHandler api=ApiClient.getClient().create(ApiHandler.class);
+        //Call<String> image = api.getPicture(produit.getId_prod());
+
+
+        //Glide.with(context).load("https://www.cuisinonsencouleurs.fr/wp-content/uploads/2021/02/Cheesecake-maison-16-scaled.jpg").into(holder.image);
+
         Call<String> pic = api.getPicture(produit.getId_prod());
         pic.enqueue(new Callback<String>() {
             @Override
