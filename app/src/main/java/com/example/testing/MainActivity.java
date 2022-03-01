@@ -1,22 +1,17 @@
 package com.example.testing;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     Button gomenu;
     Button godetail;
-    Button goadd,goTest;
+    Button goadd,goTest,ListCat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,5 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ListCat=(Button) findViewById(R.id.goListCat);
+        ListCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(), ListCategorieClientActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 }

@@ -25,7 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AcceptRefuseActivity"></activity>
+        <activity android:name=".ListMenuByIdCatActivity"></activity>
+        <activity android:name=".ListCategorieClientActivity" />
+        <activity android:name=".AcceptRefuseActivity" />
         <activity android:name=".DetailFacteur" />
         <activity android:name=".UploadImageActivity" />
 

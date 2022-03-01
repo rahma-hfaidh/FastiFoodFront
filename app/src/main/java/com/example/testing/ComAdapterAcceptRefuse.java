@@ -38,8 +38,9 @@ public class ComAdapterAcceptRefuse extends RecyclerView.Adapter<ComAdapterAccep
     public void onBindViewHolder(@NonNull ComViewHolder holder, int position) {
         commande com = listCom.get(position);
         holder.modepaye.setText(com.getMode_payement());
-        holder.date.setText(com.getDate());
-        holder.somme_com.setText(Double.toString(com.getSomme_fact()));
+        holder.date.setText(com.getDate().substring(0,15));
+        String somme= String.valueOf((com.getSomme_fact()));
+        holder.somme_com.setText(somme);
         holder.adresse.setText(com.getAdresse());
 
 

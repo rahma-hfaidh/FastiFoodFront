@@ -28,6 +28,7 @@ public class AcceptRefuseActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         Fragment unFragment=null;
 
+
         switch (v.getId()) {
             case R.id.rl_accept:
                 rl_accept.setBackgroundResource(R.drawable.rectange_gradient);
