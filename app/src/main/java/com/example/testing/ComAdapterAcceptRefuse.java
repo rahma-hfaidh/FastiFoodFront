@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,18 @@ public class ComAdapterAcceptRefuse extends RecyclerView.Adapter<ComAdapterAccep
         holder.somme_com.setText(Double.toString(com.getSomme_fact()));
         holder.adresse.setText(com.getAdresse());
 
+        if(com.getStatus().equals("en cours") ) {
+            //holder.pBar.setProgress(50);
+            holder.pBar.setIndeterminate(true);
+        }
+        if(com.getStatus().equals("livré") ) {
+            holder.pBar.setProgress(100);
+            holder.pBar.setIndeterminate(false);
+        }
+        if(com.getStatus().equals("pas encore") ) {
+            holder.pBar.setProgress(0);
+            holder.pBar.setIndeterminate(false);
+        }
 
 
 
@@ -64,11 +77,12 @@ public class ComAdapterAcceptRefuse extends RecyclerView.Adapter<ComAdapterAccep
         TextView date;
         TextView modepaye;
         ImageView annuler;
+        ProgressBar pBar;
 
         public ComViewHolder(@NonNull View itemView) {
             super(itemView);
             modepaye=itemView.findViewById(R.id.modepaye);
-            status = itemView.findViewById(R.id.status);
+            pBar= itemView.findViewById(R.id.p_Bar);
 
 
             adresse = itemView.findViewById(R.id.adresse);

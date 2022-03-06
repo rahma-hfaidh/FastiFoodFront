@@ -77,9 +77,10 @@ int id_fact;
         });
     }
     @Override
-    protected void onResume() {
+    protected void onRestart() {
 
-        super.onResume();
+        super.onRestart();
+        finish();
 
     }
 
