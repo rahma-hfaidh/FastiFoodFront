@@ -1,6 +1,7 @@
 package com.example.testing;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,12 +42,28 @@ public class MenuByCatAdapter extends ArrayAdapter {
         ImageView imageView = (ImageView) v.findViewById(R.id.imageMenuItem);
         textView.setText(MenuByCatList.get(position).getNomProd());
 
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getContext(),DetailProdActivity.class);
+                int id_prod=MenuByCatList.get(position).getId_prod();
+                int id_cat=MenuByCatList.get(position).getId_cat();
+                i.putExtra("id_prod",id_prod);
+                i.putExtra("id_cat",id_cat);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getContext().startActivity(i);
+
+            }
+        });
+
+
         ApiProduit api=ApiClient.getClient().create(ApiProduit.class);
         Call<String> pic = api.getPicture(MenuByCatList.get(position).getId_prod());
         pic.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Response<String> response, Retrofit retrofit) {
                 String picture=response.body();
+             //   Picasso.get().load("http://192.168.43.19:5000/images/"+picture).into(imageView);
                 Picasso.get().load("http://172.16.23.70:5000/images/"+picture).into(imageView);
             }
 

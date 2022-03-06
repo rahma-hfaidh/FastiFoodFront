@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.testing">
+
     <uses-feature
         android:name="android.hardware.camera2"
         android:required="false" />
@@ -24,13 +25,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".ListMenuByIdCatActivity"></activity>
+        <activity android:name=".PanierActivity"></activity>
+        <activity android:name=".ListMenuByIdCatActivity" />
         <activity android:name=".ListCategorieClientActivity" />
         <activity android:name=".AcceptRefuseActivity" />
         <activity android:name=".DetailFacteur" />
         <activity android:name=".UploadImageActivity" />
-
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class ComAdapterAcceptRefuse extends RecyclerView.Adapter<ComAdapterAcceptRefuse.ComViewHolder> {
-    List<commande> listCom;
+    List<commandeRestau> listCom;
     Context context;
 
-    public ComAdapterAcceptRefuse(List<commande> listCom, Context context) {
+    public ComAdapterAcceptRefuse(List<commandeRestau> listCom, Context context) {
         this.listCom = listCom;
         this.context = context;
     }
@@ -36,7 +36,7 @@ public class ComAdapterAcceptRefuse extends RecyclerView.Adapter<ComAdapterAccep
 
     @Override
     public void onBindViewHolder(@NonNull ComViewHolder holder, int position) {
-        commande com = listCom.get(position);
+        commandeRestau com = listCom.get(position);
         holder.modepaye.setText(com.getMode_payement());
         holder.date.setText(com.getDate().substring(0,15));
         String somme= String.valueOf((com.getSomme_fact()));
@@ -70,8 +70,6 @@ public class ComAdapterAcceptRefuse extends RecyclerView.Adapter<ComAdapterAccep
             super(itemView);
             modepaye=itemView.findViewById(R.id.modepaye);
             status = itemView.findViewById(R.id.status);
-
-
             adresse = itemView.findViewById(R.id.adresse);
             date = itemView.findViewById(R.id.date);
             somme_com = itemView.findViewById(R.id.somme_com);

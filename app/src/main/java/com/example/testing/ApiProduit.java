@@ -23,4 +23,11 @@ public interface ApiProduit {
 
     @GET("produit/images/:id_prod")
     Call<String> getPicture(@Query("id_prod") int id_prod);
+
+    @GET("produit/GetProdByIdProd/:id_prod")
+    Call<String> getProdByIdProd(@Query("id_prod") int id_prod);
+
+    @GET("detailProduit/GetPriceProd/:id_prod/:id_unite")
+    Call<String> getPriceProd(@Query("id_prod") int id_prod,
+                              @Query("id_unite") int id_unite);
 }
