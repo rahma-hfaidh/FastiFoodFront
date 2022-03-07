@@ -9,9 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +25,7 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class ComRefuseFragment extends Fragment {
+    int id_restau=2;
     private RecyclerView rv_com;
     private RecyclerView.LayoutManager layoutManager;
     private ComAdapterAcceptRefuse comAdapter;
@@ -68,20 +75,40 @@ public class ComRefuseFragment extends Fragment {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_com_refuse, container, false);
 
+        ApiCom api = ApiClient.getClient().create(ApiCom.class);
+        Call<List<commandeRestau>> list=api.getCommandesRefuseByIdRestau(id_restau);
+        list.enqueue(new Callback<List<commandeRestau>>() {
+            @Override
+            public void onResponse(Response<List<commandeRestau>> response, Retrofit retrofit) {
+                if(response.isSuccess())
+                {
+                    List<commandeRestau> CommList=new ArrayList<commandeRestau>();
+                    CommList=response.body();
 
-        List<commande> listCom = new ArrayList<>();
-        listCom.add(new commande(1, "9 rue kahra tunis", 1,500,"en cours","12/10/2020","à livré","patiel","12:00h"));
-        listCom.add(new commande(1, "10 rue kahra marsa", 1, 250,"en cours","12/11/2020","à livré","partiel","13:30h"));
+                    // on récupére notre Recyclerview via son id
+                    rv_com = v.findViewById(R.id.rv_com);
+                    //on veut un recyclerview qui utilise un linearlayoutManager
+                    layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+                    rv_com.setLayoutManager(layoutManager);
+                    //on donne notre adapter à notre recyclerview
+                    comAdapter = new ComAdapterAcceptRefuse(CommList, getContext());
+                    rv_com.setAdapter(comAdapter);
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Apiiiiiiiiiiiiiiiii ", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(getActivity(), "failuree "+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
-        // on récupére notre Recyclerview via son id
-        rv_com = v.findViewById(R.id.rv_com);
-        //on veut un recyclerview qui utilise un linearlayoutManager
-        layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        rv_com.setLayoutManager(layoutManager);
-        //on donne notre adapter à notre recyclerview
-        comAdapter = new ComAdapterAcceptRefuse(listCom, getContext());
-        rv_com.setAdapter(comAdapter);
 
         return v;
     }

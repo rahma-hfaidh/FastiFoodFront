@@ -13,4 +13,7 @@ public interface ApiCategorie {
 
     @GET("categoie/GetCatByIdRestau/:id_restau")
     Call<List<Categorie>> getCatByIdRestau(@Query("id_restau") int id_restau);
+
+    @GET("categoie/images/:id_cat")
+    Call<String> getPicture(@Query("id_cat") int id_cat);
 }

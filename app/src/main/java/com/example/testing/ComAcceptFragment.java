@@ -9,9 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +26,7 @@ import java.util.List;
  */
 public class ComAcceptFragment extends Fragment {
 
+    int id_restau=2;
     private RecyclerView rv_com;
     private RecyclerView.LayoutManager layoutManager;
     private ComAdapterAcceptRefuse comAdapter;
@@ -70,24 +77,32 @@ public class ComAcceptFragment extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_com_accept, container, false);
 
+        ApiCom api = ApiClient.getClient().create(ApiCom.class);
+        Call<List<commandeRestau>> list=api.getCommandesAcceptByIdRestau(id_restau);
+        list.enqueue(new Callback<List<commandeRestau>>() {
+            @Override
+            public void onResponse(Response<List<commandeRestau>> response, Retrofit retrofit) {
 
-        List<commande> listCom = new ArrayList<>();
-        listCom.add(new commande(1, "9 rue kahra tunis", 1,500,"en cours","12/10/2020","à livré","partiel","12:30h"));
-        listCom.add(new commande(1, "10 rue kahra marsa", 1, 250,"en cours","12/11/2020","à livré","partiel","11:00h"));
-        listCom.add(new commande(1, "11 rue kahra ben arous", 1, 1, "en cours","10/10/2020","à livré","partiel","10:40h"));
-        listCom.add(new commande(1, "2 rue kahra ariana", 1, 100, "en cours","12/08/2020","à livré","partiel","13:00h"));
-        listCom.add(new commande(1, "11 rue kahra ben arous", 1, 1, "en cours","10/10/2020","à livré","partiel","15:00h"));
-        listCom.add(new commande(1, "2 rue kahra ariana", 1, 100, "en cours","12/08/2020","à livré","partiel","15:30h"));
+                List<commandeRestau> CommList=new ArrayList<commandeRestau>();
+                CommList=response.body();
+
+                // on récupére notre Recyclerview via son id
+                rv_com = v.findViewById(R.id.rv_com);
+                //on veut un recyclerview qui utilise un linearlayoutManager
+                layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+                rv_com.setLayoutManager(layoutManager);
+                //on donne notre adapter à notre recyclerview
+                comAdapter = new ComAdapterAcceptRefuse(CommList, getContext());
+                rv_com.setAdapter(comAdapter);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(getActivity(), "failuree "+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
-        // on récupére notre Recyclerview via son id
-        rv_com = v.findViewById(R.id.rv_com);
-        //on veut un recyclerview qui utilise un linearlayoutManager
-        layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        rv_com.setLayoutManager(layoutManager);
-        //on donne notre adapter à notre recyclerview
-        comAdapter = new ComAdapterAcceptRefuse(listCom, getContext());
-        rv_com.setAdapter(comAdapter);
 
         return v;
     }

@@ -15,6 +15,9 @@ public interface ApiCom {
     @POST("commande/AnnulerCom")
     Call<String> AnnulerCom(@Query("id_com") int id_com);
 
-
+    @GET("commande/GetCommandesAcceptByIdRestau/:id_restau")
+    Call<List<commandeRestau>> getCommandesAcceptByIdRestau(@Query("id_restau") int id_restau);
+    @GET("commande/GetCommandesRefuseByIdRestau/:id_restau")
+    Call<List<commandeRestau>> getCommandesRefuseByIdRestau(@Query("id_restau") int id_restau);
 
  }

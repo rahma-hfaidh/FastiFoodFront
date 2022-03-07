@@ -72,7 +72,7 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
                 String picture=response.body();
 
                 // holder.image.setImageDrawable(Drawable.createFromPath("http://localhost:5000/uploads/tartes"));
-                Picasso.get().load("http://172.20.10.2:5000/uploads/"+picture).into(holder.image);
+                Picasso.get().load("http://192.168.1.103:5000/uploads/"+picture).into(holder.image);
             }
 
             @Override

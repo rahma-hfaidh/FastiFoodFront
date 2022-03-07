@@ -18,6 +18,8 @@
     <string name="tv_chImage">Choisir Image</string>
     <string name="tv_comacc">Commandes Acceptés</string>
     <string name="tv_comref">Commandes Refusés</string>
+    <string name="tv_cat">Nos Catégories</string>
+    <string name="tv_menu">Menu</string>
     <string-array name="array_status">
         <item>en attent</item>
         <item>accepté</item>
