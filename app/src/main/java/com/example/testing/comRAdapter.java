@@ -48,7 +48,7 @@ public class comRAdapter extends RecyclerView.Adapter<comRAdapter.ComViewHolder>
 
         commandeRestau com = listCom.get(position);
         holder.modepaye.setText(com.getMode_payement());
-        holder.date.setText(com.getDate().substring(0,10));
+        holder.date.setText(com.getDate().substring(0,15));
         holder.somme_com.setText(Double.toString(com.getSomme_fact()));
         holder.adresse.setText(com.getAdresse());
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.array_status, android.R.layout.simple_spinner_item);

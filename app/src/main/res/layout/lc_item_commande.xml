@@ -24,12 +24,25 @@
 
 
 
+        <ProgressBar
+            android:id="@+id/p_Bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="25"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="75dp"
+            android:minWidth="200dp"
+            android:minHeight="50dp"
+       />
 
         <TextView
             android:id="@+id/somme_com"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_below="@id/adresse"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="40dt"
 
@@ -39,48 +52,43 @@
             />
         <TextView
             android:id="@+id/modepaye"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_below="@id/adresse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="a livraison"
             android:textSize="18sp"
             android:textColor="@color/black"
-
-            android:layout_toRightOf="@+id/somme_com"
-            />
-        <TextView
-            android:id="@+id/etat"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginRight="70dp"
-            android:layout_toLeftOf="@id/status"
-            android:text="partiel"
-            />
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:text="en cours"
+            android:layout_alignParentLeft="true"
             />
 
         <TextView
             android:id="@+id/date"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/adresse"
+            android:text="12/04/1999"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12/04/1999"
+            android:layout_alignParentRight="true"
+            />
+
+
+        <TextView
+            android:id="@+id/etat"
             android:textSize="18sp"
+            android:text="partiel"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/adresse"
+            android:textColor="@color/purple_500"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+
             android:layout_alignParentRight="true"
             />
         <TextView
             android:id="@+id/heure"
-            android:layout_marginTop="5dp"
             android:layout_below="@id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
             android:text="12:30h"
             android:textSize="18sp"
             android:layout_alignParentRight="true"
