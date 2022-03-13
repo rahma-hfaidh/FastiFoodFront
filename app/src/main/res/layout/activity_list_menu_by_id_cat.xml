@@ -26,4 +26,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/shopp_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_shopping_cart"
+        app:rippleColor="@color/teal_200"
+        android:outlineAmbientShadowColor="@color/teal_200"
+        android:outlineSpotShadowColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/cartcount"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/badge_shape"
+        android:gravity="center"
+        android:textColor="@color/white"
+
+        app:layout_constraintBottom_toTopOf="@+id/shopp_button"
+        app:layout_constraintEnd_toEndOf="@id/shopp_button"
+        app:layout_constraintHorizontal_bias="0.91"
+
+        app:layout_constraintStart_toStartOf="@+id/shopp_button"
+       />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

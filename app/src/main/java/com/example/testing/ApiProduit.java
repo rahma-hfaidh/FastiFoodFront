@@ -25,9 +25,12 @@ public interface ApiProduit {
     Call<String> getPicture(@Query("id_prod") int id_prod);
 
     @GET("produit/GetProdByIdProd/:id_prod")
-    Call<String> getProdByIdProd(@Query("id_prod") int id_prod);
+    Call<Root> getProdByIdProd(@Query("id_prod") int id_prod);
 
     @GET("detailProduit/GetPriceProd/:id_prod/:id_unite")
     Call<String> getPriceProd(@Query("id_prod") int id_prod,
                               @Query("id_unite") int id_unite);
+
+    @GET("produit/FindNameRestByIdRest/:id_restau")
+    Call<RootForRestau> getNomRestau(@Query("id_prod") int id_prod);
 }

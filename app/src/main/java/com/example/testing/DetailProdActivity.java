@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,8 +28,12 @@ import retrofit.Retrofit;
 
 public class DetailProdActivity extends AppCompatActivity {
 
+    String prix="20",imageProd,nomProd,price;
+
+    Float   prixTotal = 0f;
+    //Float prixTotal=0f;
+    RootForRestau nomRest;
     int id_prod,id_cat,id_unite;
-    String nomProduit;
     RelativeLayout rl_submit_cat,rl_app_choice;
     RadioGroup rg;
     RadioButton rb;
@@ -102,11 +108,12 @@ public class DetailProdActivity extends AppCompatActivity {
         ShapeableImageView imageView=(ShapeableImageView) findViewById(R.id.imgDetailProd);
         ApiHandler api=ApiClient.getClient().create(ApiHandler.class);
         Call<String> pic = api.getPicture(id_prod);
+
         pic.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Response<String> response, Retrofit retrofit) {
                 String picture=response.body();
-
+                imageProd=picture;
                 // holder.image.setImageDrawable(Drawable.createFromPath("http://localhost:5000/uploads/tartes"));
                // Picasso.get().load("http://172.16.23.70:5000/uploads/"+picture).into(imageView);
                 Picasso.get().load("http://192.168.43.19:5000/uploads/"+picture).into(imageView);
@@ -124,18 +131,18 @@ public class DetailProdActivity extends AppCompatActivity {
 
         TextView tv_nomprod=(TextView) findViewById(R.id.tv_nomProd);
         ApiProduit apiProd=ApiClient.getClient().create(ApiProduit.class);
-        Call<String> nomProd = apiProd.getProdByIdProd(id_prod);
-        nomProd.enqueue(new Callback<String>() {
+        Call<Root> nomProds = apiProd.getProdByIdProd(id_prod);
+        nomProds.enqueue(new Callback<Root>() {
             @Override
-            public void onResponse(Response<String> response, Retrofit retrofit) {
-                nomProduit = response.body();
-                System.out.println("issmouuuu "+nomProduit);
-                tv_nomprod.setText(nomProduit);
+            public void onResponse(Response<Root> response, Retrofit retrofit) {
+                Root nomProduit = response.body();
+                nomProd=nomProduit.nomProd;
+                tv_nomprod.setText(nomProd);
             }
 
             @Override
             public void onFailure(Throwable t) {
-
+                System.out.println("failure au niveau de la rec du nom : "+t);
             }
         });
         //checkeddd
@@ -153,19 +160,77 @@ public class DetailProdActivity extends AppCompatActivity {
                 prixProd.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Response<String> response, Retrofit retrofit) {
-                        String prix=response.body();
-                        System.out.println("prix"+prix);
-                        TextView tv_prixProd=(TextView) findViewById(R.id.tv_prixProd);
-                        tv_prixProd.setText(prix);
+
+
+                        if(response.isSuccess())
+                        {
+                            prix=response.body();
+                             price=prix+" DT";
+                            TextView tv_prixProd=(TextView) findViewById(R.id.tv_prixProd);
+                            tv_prixProd.setText(price);
+                        }
+
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-
+                        System.out.println("failure "+t);
                     }
                 });
                 Toast.makeText(getApplicationContext(),radioButton.getText(),Toast.LENGTH_LONG).show();
             }
         });
+
+
+        // recuperation nom restau
+
+
+        Call<RootForRestau> name=apiProd.getNomRestau(id_prod);
+        name.enqueue(new Callback<RootForRestau>() {
+            @Override
+            public void onResponse(Response<RootForRestau> response, Retrofit retrofit) {
+                nomRest=response.body();
+                System.out.println("restau"+nomRest.designation);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+
+        // go to panier
+
+        RelativeLayout rv_submit=(RelativeLayout) findViewById(R.id.rl_submit_go_to_panier);
+        rv_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Float pr=Float.parseFloat(prix);
+
+                prixTotal = prixTotal+pr;
+                System.out.println("prixxxxxxxx total   "+prixTotal);
+                Intent intent=new Intent(getApplicationContext(), PanierActivity.class);
+                intent.putExtra("prixTotal",prixTotal);
+
+
+
+                Cart cart=new Cart();
+                cart.setId_prod(id_prod);
+                cart.setImageProd(imageProd);
+                cart.setNomRest(nomRest.designation);
+                cart.setNomProd(nomProd);
+                cart.setPrixProd(prix);
+                if (ListMenuByIdCatActivity.myDatabase.cartDao().isAddToCart(id_prod)!=1){
+                    ListMenuByIdCatActivity.myDatabase.cartDao().addToCart(cart);
+                    Intent i = new Intent(getApplicationContext(),PanierActivity.class);
+                    startActivity(i);
+                    Toast.makeText(DetailProdActivity.this, "Added to cart!", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(DetailProdActivity.this, "You are Already added to cart!", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
     }
+
 }
