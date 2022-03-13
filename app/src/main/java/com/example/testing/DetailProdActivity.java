@@ -29,8 +29,6 @@ import retrofit.Retrofit;
 public class DetailProdActivity extends AppCompatActivity {
 
     String prix="20",imageProd,nomProd,price;
-
-    Float   prixTotal = 0f;
     //Float prixTotal=0f;
     RootForRestau nomRest;
     int id_prod,id_cat,id_unite;
@@ -205,12 +203,12 @@ public class DetailProdActivity extends AppCompatActivity {
         rv_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Float pr=Float.parseFloat(prix);
 
-                prixTotal = prixTotal+pr;
-                System.out.println("prixxxxxxxx total   "+prixTotal);
+
+
+
                 Intent intent=new Intent(getApplicationContext(), PanierActivity.class);
-                intent.putExtra("prixTotal",prixTotal);
+                //intent.putExtra("prixTotal",prixTotal);
 
 
 

@@ -1,6 +1,7 @@
 package com.example.testing;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.imageview.ShapeableImageView;
@@ -19,8 +21,10 @@ public class PanierAdapter extends RecyclerView.Adapter<PanierAdapter.PanierView
 
     List<Cart> listPanier;
     Context context;
+    Float   prixTotal = 0f;
 
-    public PanierAdapter(List<Cart> listPanier,Context context)
+
+    public PanierAdapter(List<Cart> listPanier, Context context)
     {
         this.listPanier=listPanier;
         this.context=context;
@@ -36,6 +40,16 @@ public class PanierAdapter extends RecyclerView.Adapter<PanierAdapter.PanierView
     @Override
     public void onBindViewHolder(@NonNull PanierViewHolder holder, int position) {
         Cart panier=listPanier.get(position);
+
+        Float pr=Float.parseFloat(panier.getPrixProd());
+        prixTotal+=pr;
+        System.out.println("prixxxxxxxx total   "+prixTotal);
+
+
+        Intent intent = new Intent("custom-message");
+        intent.putExtra("pr",prixTotal);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+
         //holder.imageProd.setImageResource(panier.getImageProd());
         holder.nomProd.setText(panier.getNomProd());
         holder.designation.setText(panier.getNomRest());
@@ -46,6 +60,11 @@ public class PanierAdapter extends RecyclerView.Adapter<PanierAdapter.PanierView
 
 
     }
+
+    public Float getPrixTotal() {
+        return prixTotal;
+    }
+
 
     @Override
     public int getItemCount() {

@@ -24,8 +24,9 @@ public class PanierActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private PanierAdapter panierAdapter;
     List<Cart> listPanier;
-    TextView tvcount;
+    TextView tvcount,prixTotal;
     ImageView back;
+    Float prixx=0f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +66,14 @@ public class PanierActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
+                new IntentFilter("custom-message"));
+
+
+        prixTotal=(TextView) findViewById(R.id.TotalPrice);
+
+
     }
 
  /*   private void updatacartcount() {
@@ -87,6 +96,19 @@ public class PanierActivity extends AppCompatActivity {
         super.onResume();
         //updatacartcount();
     }
+
+    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Get extra data included in the Intent
+            prixx = intent.getFloatExtra("pr",0.0f);
+            System.out.println("222   "+prixx);
+
+            String price = Float.toString(prixx);
+            prixTotal.setText(price);
+
+        }
+    };
 
     public BroadcastReceiver mMasage=new BroadcastReceiver(){
 
