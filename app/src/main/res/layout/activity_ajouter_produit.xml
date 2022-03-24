@@ -33,6 +33,7 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:inputType="number"
         android:hint="@string/edt_prixProd"
         style="@style/input_style"
         app:layout_constraintTop_toBottomOf="@+id/edt_nomProd"

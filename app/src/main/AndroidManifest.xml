@@ -25,7 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PanierActivity"></activity>
+        <activity android:name=".PanierActivity" />
         <activity android:name=".ListMenuByIdCatActivity" />
         <activity android:name=".ListCategorieClientActivity" />
         <activity android:name=".AcceptRefuseActivity" />

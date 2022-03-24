@@ -63,8 +63,8 @@ public class MenuByCatAdapter extends ArrayAdapter {
             @Override
             public void onResponse(Response<String> response, Retrofit retrofit) {
                 String picture=response.body();
-             //   Picasso.get().load("http://192.168.43.19:5000/images/"+picture).into(imageView);
-                Picasso.get().load("http://172.16.23.70:5000/images/"+picture).into(imageView);
+              Picasso.get().load("http://192.168.43.19:5000/images/"+picture).into(imageView);
+            //    Picasso.get().load("http://172.16.23.70:5000/images/"+picture).into(imageView);
             }
 
             @Override
