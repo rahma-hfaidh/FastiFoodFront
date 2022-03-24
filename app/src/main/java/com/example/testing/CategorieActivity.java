@@ -56,12 +56,10 @@ public class CategorieActivity extends AppCompatActivity {
                     int length= listCat.size();
                     for (int i=0; i<length; i++)
                     {
-
                         rb= new RadioButton(getApplicationContext());
                         rb.setText(listCat.get(i).getNomCat());
                         rb.setId(listCat.get(i).getId_cat());
                         rg.addView(rb);
-
                     }
 
                 }
