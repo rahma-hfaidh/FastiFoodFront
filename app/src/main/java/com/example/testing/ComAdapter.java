@@ -94,7 +94,9 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
                             ImageView imgc=(ImageView)dialog.findViewById(R.id.imgC);
                             nom.setText(listcour.get(0).nomCoursier+" "+ listcour.get(0).prenomCoursier);
                             num.setText(listcour.get(0).numCoursier);
-                            imgc.setImageResource(R.drawable.c);
+
+                            Picasso.get().load("http://192.168.31.136:5000/images/"+listcour.get(0).imageCoursier).into(imgc);
+
                             //Picasso.get().load("http://192.168.43.124:5000/uploads/"+listcour.get(0).imageCoursier).into(imgc);
                             // if button is clicked, close the custom dialog
                             dialogButton.setOnClickListener(new View.OnClickListener() {
