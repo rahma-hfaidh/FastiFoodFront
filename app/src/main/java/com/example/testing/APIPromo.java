@@ -4,10 +4,13 @@ import java.util.List;
 
 import retrofit.Call;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Query;
 
 public interface APIPromo {
-
+    @POST("/promotion/postProd")
+    Call<String> postPromo(@Query("prix_promo") Float prix_promo,
+                             @Query("id_restau") int id_restau);
         @GET("promotion/GetlistPromo")
         Call<List<Promotion>> getListPromo();
 
