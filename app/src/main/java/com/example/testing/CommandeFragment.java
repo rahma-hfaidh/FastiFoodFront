@@ -138,16 +138,6 @@ public class CommandeFragment extends Fragment {
         listCom.add(new commande(1, "2 rue kahra ariana", 1, 100, "en cours","12/08/2020","à livré"));
 
 */
-
-
-
-
-
-
-
-
-
-
         //on sépare chaque ligne de notre liste par un trait
         /*
         DividerItemDecoration dividerItemDecoration;

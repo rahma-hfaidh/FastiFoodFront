@@ -11,6 +11,7 @@ import retrofit.http.Query;
 
 public interface ApiCategorie {
 
+
     @GET("categoie/GetCatByIdRestau/:id_restau")
     Call<List<Categorie>> getCatByIdRestau(@Query("id_restau") int id_restau);
 
