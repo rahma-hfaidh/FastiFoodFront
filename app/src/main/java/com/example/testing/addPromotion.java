@@ -69,7 +69,7 @@ public class addPromotion extends AppCompatActivity {
                     }
                 });
 
-                Intent i = new Intent(getApplicationContext(),UploadImageActivity.class);
+                Intent i = new Intent(getApplicationContext(),UploadImagePromoActivity.class);
                 startActivity(i);
             }
         });

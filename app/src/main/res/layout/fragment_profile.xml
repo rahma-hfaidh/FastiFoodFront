@@ -7,21 +7,28 @@
     android:clickable="true"
     android:padding="20dp"
     tools:context=".ProfileFragment">
+    <RelativeLayout
+        android:id="@+id/mgbg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/rectangle_top"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Promotion"
+            android:id="@+id/promo"
+            android:textSize="30dp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/promo"
-        android:text="promotion"
-        android:textSize="40dp"
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints" />
+
     <GridView
         android:id="@+id/gridViewListPromoClient"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="250dp"
         android:numColumns="2"
         android:stretchMode="columnWidth"
         app:layout_constraintBottom_toBottomOf="parent"

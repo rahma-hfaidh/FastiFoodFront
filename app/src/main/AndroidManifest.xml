@@ -25,7 +25,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
-        <activity android:name=".addPromotion"></activity>
+        <activity android:name=".UploadImagePromoActivity"></activity>
+        <activity android:name=".addPromotion" />
         <activity android:name=".PanierActivity" />
         <activity android:name=".ListMenuByIdCatActivity" />
         <activity android:name=".ListCategorieClientActivity" />

@@ -56,7 +56,7 @@ public class PanierAdapter extends RecyclerView.Adapter<PanierAdapter.PanierView
         String price=panier.getPrixProd()+" DT";
         holder.prixprod.setText(price);
         // holder.quantite.setText((panier.getQuantite());
-        Picasso.get().load("http://192.168.43.19:5000/uploads/"+panier.getImageProd()).into(holder.imageProd);
+        Picasso.get().load("http://172.16.20.193:5000/uploads/"+panier.getImageProd()).into(holder.imageProd);
 
 
     }

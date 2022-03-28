@@ -15,7 +15,7 @@
         android:layout_height="200dp"
 
         android:background="@drawable/rectangle_top"
-           >
+        >
         <Spinner
             android:id="@+id/rl_submit_catR"
             android:layout_width="wrap_content"

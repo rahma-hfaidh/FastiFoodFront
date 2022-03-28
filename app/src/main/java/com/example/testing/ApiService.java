@@ -13,5 +13,8 @@ public interface ApiService {
     @Multipart
     @POST("/upload")
     Call<ResponseBody> postImage(@Part MultipartBody.Part image, @Part("upload") RequestBody name);
+    @Multipart
+    @POST("/uploadPromo")
+    Call<ResponseBody> postImagePromo(@Part MultipartBody.Part image, @Part("upload") RequestBody name);
 
 }
