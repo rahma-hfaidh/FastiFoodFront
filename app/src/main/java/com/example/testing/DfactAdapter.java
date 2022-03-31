@@ -23,6 +23,8 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
+import static com.example.testing.MainActivity.BASE_URL_Image;
+
 public class DfactAdapter extends RecyclerView.Adapter<DfactAdapter.DfactViewHolder> {
     List<Dfacteur> listDc;
     Context context;
@@ -47,7 +49,7 @@ public class DfactAdapter extends RecyclerView.Adapter<DfactAdapter.DfactViewHol
         Dfacteur DF = listDc.get(position);
         holder.reponse.setText(DF.getReponse());
 
-        Picasso.get().load("http://192.168.43.124:5000/uploads/"+DF.logo).into(holder.logo);
+        Picasso.get().load(BASE_URL_Image+DF.logo).into(holder.logo);
         holder.somme_Dfacteur.setText(Double.toString(DF.getSomme_Dfacteur()));
         holder.nomRestau.setText(DF.getNomRestau());
         System.out.println(DF.getReponse().equals("en attent"));
@@ -132,8 +134,6 @@ holder.annuler.setOnClickListener(new View.OnClickListener() {
             super(itemView);
             nomRestau=itemView.findViewById(R.id.nomRest);
             reponse = itemView.findViewById(R.id.rep);
-
-
             somme_Dfacteur = itemView.findViewById(R.id.somme_Dfact);
             logo = itemView.findViewById(R.id.imageRest);
             annuler= itemView.findViewById(R.id.annD);

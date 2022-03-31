@@ -21,6 +21,8 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
+import static com.example.testing.MainActivity.BASE_URL_Image;
+
 public class MenuByCatAdapter extends ArrayAdapter {
     List<Produit> MenuByCatList= new ArrayList<>();
     public MenuByCatAdapter(@NonNull Context context, int resource, @NonNull List objects) {
@@ -63,7 +65,7 @@ public class MenuByCatAdapter extends ArrayAdapter {
             @Override
             public void onResponse(Response<String> response, Retrofit retrofit) {
                 String picture=response.body();
-              Picasso.get().load("http://192.168.43.19:5000/images/"+picture).into(imageView);
+              Picasso.get().load(BASE_URL_Image+picture).into(imageView);
             //    Picasso.get().load("http://172.16.23.70:5000/images/"+picture).into(imageView);
             }
 

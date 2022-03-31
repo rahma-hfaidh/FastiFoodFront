@@ -33,6 +33,8 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
+import static com.example.testing.MainActivity.BASE_URL_Image;
+
 public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitViewHolder> {
 
     List<Produit> listProduit;
@@ -72,7 +74,7 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ProduitV
                 String picture=response.body();
 
                 // holder.image.setImageDrawable(Drawable.createFromPath("http://localhost:5000/uploads/tartes"));
-                Picasso.get().load("http://172.16.20.193:5000/uploads/"+picture).into(holder.image);
+                Picasso.get().load(BASE_URL_Image+picture).into(holder.image);
             }
 
             @Override
