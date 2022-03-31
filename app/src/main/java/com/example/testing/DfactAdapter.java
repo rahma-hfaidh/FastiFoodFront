@@ -23,7 +23,8 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
-import static com.example.testing.MainActivity.BASE_URL_Image;
+import static com.example.testing.MainActivity.BASE_URL_IMAGE;
+
 
 public class DfactAdapter extends RecyclerView.Adapter<DfactAdapter.DfactViewHolder> {
     List<Dfacteur> listDc;
@@ -49,7 +50,7 @@ public class DfactAdapter extends RecyclerView.Adapter<DfactAdapter.DfactViewHol
         Dfacteur DF = listDc.get(position);
         holder.reponse.setText(DF.getReponse());
 
-        Picasso.get().load(BASE_URL_Image+DF.logo).into(holder.logo);
+        Picasso.get().load(BASE_URL_IMAGE+"uploads/"+DF.logo).into(holder.logo);
         holder.somme_Dfacteur.setText(Double.toString(DF.getSomme_Dfacteur()));
         holder.nomRestau.setText(DF.getNomRestau());
         System.out.println(DF.getReponse().equals("en attent"));

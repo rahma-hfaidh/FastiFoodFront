@@ -26,6 +26,8 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
+import static com.example.testing.MainActivity.BASE_URL_IMAGE;
+
 public class DetailProdActivity extends AppCompatActivity {
 
     String prix="20",imageProd,nomProd,price;
@@ -114,7 +116,7 @@ public class DetailProdActivity extends AppCompatActivity {
                 imageProd=picture;
                 // holder.image.setImageDrawable(Drawable.createFromPath("http://localhost:5000/uploads/tartes"));
                // Picasso.get().load("http://172.16.23.70:5000/uploads/"+picture).into(imageView);
-                Picasso.get().load("http://192.168.43.19:5000/uploads/"+picture).into(imageView);
+                Picasso.get().load(BASE_URL_IMAGE+"uploads/"+picture).into(imageView);
             }
 
             @Override

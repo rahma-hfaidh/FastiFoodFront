@@ -29,7 +29,7 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
-import static com.example.testing.MainActivity.BASE_URL_Image;
+import static com.example.testing.MainActivity.BASE_URL_IMAGE;
 
 
 public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
@@ -97,7 +97,7 @@ public class ComAdapter extends RecyclerView.Adapter<ComAdapter.ComViewHolder> {
                             nom.setText(listcour.get(0).nomCoursier+" "+ listcour.get(0).prenomCoursier);
                             num.setText(listcour.get(0).numCoursier);
 
-                            Picasso.get().load( BASE_URL_Image+listcour.get(0).imageCoursier).into(imgc);
+                            Picasso.get().load( BASE_URL_IMAGE+"uploads/"+listcour.get(0).imageCoursier).into(imgc);
 
                             //Picasso.get().load("http://192.168.43.124:5000/uploads/"+listcour.get(0).imageCoursier).into(imgc);
                             // if button is clicked, close the custom dialog

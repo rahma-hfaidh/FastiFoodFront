@@ -21,7 +21,7 @@ import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 
-import static com.example.testing.MainActivity.BASE_URL_Image;
+import static com.example.testing.MainActivity.BASE_URL_IMAGE;
 
 public class promoAdapter extends ArrayAdapter{
         List<Promotion> PromoList= new ArrayList<>();
@@ -68,7 +68,7 @@ public class promoAdapter extends ArrayAdapter{
                 @Override
                 public void onResponse(Response<String> response, Retrofit retrofit) {
                     String picture=response.body();
-                    Picasso.get().load(BASE_URL_Image+picture).into(imageView);
+                    Picasso.get().load(BASE_URL_IMAGE+"uploads/"+picture).into(imageView);
                     //  Picasso.get().load("http://172.16.23.70:5000/images/"+picture).into(imageView);
                 }
 

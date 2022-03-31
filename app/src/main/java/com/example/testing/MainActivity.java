@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     Button gomenu;
     Button godetail;
     Button goadd,goTest,ListCat;
-    public static final String BASE_URL_Image="http://172.16.13.168:5000/images/";
+    public static final String BASE_URL_IMAGE="http://172.16.13.168:5000/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
