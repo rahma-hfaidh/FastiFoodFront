@@ -41,16 +41,28 @@
             android:textSize="18sp"
             android:textColor="@color/black"
 
-            android:layout_toRightOf="@+id/imageRest"
-            />
+            android:layout_toRightOf="@+id/imageRest"/>
+
+        <ImageView
+            android:id="@+id/recl"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/rep"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:layout_marginTop="-45dp"
+
+            android:src="@drawable/reclamation"/>
+
         <TextView
             android:id="@+id/rep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
-            android:text="en attent"
-            />
+            android:layout_marginRight="197dp"
+            android:text="en attent" />
+
         <ImageView
             android:id="@+id/annD"
             android:layout_width="50dp"

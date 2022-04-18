@@ -6,7 +6,7 @@
     android:padding="10dp"
     android:layout_height="match_parent"
     android:background="@color/grisbgforpanier"
-    tools:context=".PanierActivity">
+    tools:context=".G_Panier.PanierActivity">
     <ImageView
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"

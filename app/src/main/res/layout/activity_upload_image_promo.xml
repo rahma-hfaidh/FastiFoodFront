@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:padding="40dp"
     android:background="@drawable/background1"
-    tools:context=".UploadImagePromoActivity">
+    tools:context=".Promotion.UploadImagePromoActivity">
     <RelativeLayout
         android:id="@+id/content_main"
         android:layout_width="200dp"

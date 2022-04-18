@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:padding="20dp"
-    tools:context=".ProfileFragment">
+    tools:context=".Profile.ProfileFragment">
     <RelativeLayout
         android:id="@+id/mgbg"
         android:layout_width="match_parent"
