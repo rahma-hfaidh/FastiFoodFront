@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button gomenu;
     Button godetail;
-    Button goadd,goTest,ListCat;
+    Button goadd,goTest,ListCat,Notif;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i =new Intent(getApplicationContext(), ListCategorieClientActivity.class);
+                startActivity(i);
+            }
+        });
+        Notif=(Button) findViewById(R.id.goNotif);
+        Notif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(), NotifActivity.class);
                 startActivity(i);
             }
         });
