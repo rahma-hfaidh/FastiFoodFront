@@ -6,7 +6,7 @@
     android:clickable="true"
     android:background="@color/white"
     android:layout_marginTop="70dp"
-    tools:context=".ComAcceptFragment">
+    tools:context=".Commande.ComAcceptFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Commande.selectmultipleActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_comR"
+        android:layout_width="394dp"
+        android:layout_marginTop="300dp"
+        android:layout_height="663dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="7dp" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="409dp"
+        app:title="Commandes"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/teal_700"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp" >
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="37dp"
+        android:layout_height="40dp"
+        android:background="@drawable/previous"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-17dp"
+        tools:layout_editor_absoluteY="10dp" />
+
+    <TextView
+        android:id="@+id/text_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Spinner
+        android:id="@+id/spinerrrr"
+        android:layout_width="159dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="238dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="11dp"
+
+        android:background="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/rv_comR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

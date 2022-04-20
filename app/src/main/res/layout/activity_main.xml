@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Profile.MainActivity">
+
 
    <Button
        android:layout_width="wrap_content"
@@ -53,4 +54,24 @@
        android:text="Notif"
        android:id="@+id/goNotif"
        />
+       android:text="Calendrier"
+       android:id="@+id/goCalendar"
+       />
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:layout_below="@+id/goCalendar"
+       android:text="Reclamations"
+       android:id="@+id/goReclamation"
+       />
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:layout_below="@+id/goReclamation"
+       android:text="multi select"
+       android:id="@+id/SM"
+       />
+
 </RelativeLayout>

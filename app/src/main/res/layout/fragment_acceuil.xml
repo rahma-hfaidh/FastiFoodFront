@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:clickable="true"
-    tools:context=".AcceuilFragment">
+    tools:context=".G_Produit.AcceuilFragment">
 
 
     <ScrollView

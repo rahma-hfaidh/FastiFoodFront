@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:clickable="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CommandeFragment">
+    tools:context=".Commande.CommandeFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -15,7 +15,8 @@
         android:layout_height="200dp"
 
         android:background="@drawable/rectangle_top"
-           >
+
+        >
         <Spinner
             android:id="@+id/rl_submit_catR"
             android:layout_width="wrap_content"
@@ -24,6 +25,10 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/attent"
             />
+
+           >
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,10 +37,58 @@
             android:layout_centerInParent="true"
             android:textColor="@color/white"/>
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <Button
+            android:id="@+id/Fall"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginTop="200dp"
+            android:backgroundTint="#D2FF9800"
+            android:text="ALL"
+         />
+        <Button
+            android:id="@+id/FJ"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+
+            android:text="Aujourd'hui"
+            />
+        <Button
+            android:id="@+id/FAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="Accepté"
+           />
+        <Button
+            android:id="@+id/FRefuse"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="Refusé"
+          />
+        <Button
+            android:id="@+id/FPartiel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="Partiel"
+         />
+
+    </LinearLayout>
 
     <ScrollView
 
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="250dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
