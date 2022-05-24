@@ -9,6 +9,6 @@ import retrofit.http.GET;
 import retrofit.http.Query;
 
 public interface APICoursier {
-    @GET("coursier/GetCoursiersByF/:id_fact")
+    @GET("coursier/GetCoursiersByFact/:id_fact")
     Call<List<Coursier>> getCoursierByIdF(@Query("id_fact") int id_fact);
 }
