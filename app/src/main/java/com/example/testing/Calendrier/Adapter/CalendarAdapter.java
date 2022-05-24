@@ -45,6 +45,8 @@ private final ArrayList<String> daysOfMonth;
     public void onBindViewHolder(@NonNull @NotNull CalendarAdapter.calendarViewHolder holder, int position) {
         //commande DF = listcj.get(position);
         holder.dayOfMonth.setText(daysOfMonth.get(position));
+     
+
     }
 
     @Override
@@ -63,6 +65,7 @@ private final ArrayList<String> daysOfMonth;
         public calendarViewHolder(@NonNull @NotNull View itemView,CalendarAdapter.OnItemListener onItemListener) {
             super(itemView);
             dayOfMonth=itemView.findViewById(R.id.cellDayText);
+
             this.onItemListener = onItemListener;
             itemView.setOnClickListener(this);
         }

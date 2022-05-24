@@ -32,10 +32,11 @@ public class Commandesj extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         date= extras.getString("date");
 
+
         ApiCom api = ApiClient.getClient().create(ApiCom.class);
 
         Call<List<commande>> listComByD = api.getComtBydate(date);
-        System.out.println("listaaaaaaaaaaa " + listComByD);
+
 
         listComByD.enqueue(new Callback<List<commande>>() {
             @Override
@@ -70,7 +71,7 @@ public class Commandesj extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
-                System.out.println("errrrrrrrrrrrrrrrrrr");
+                System.out.println("erreur");
 
             }
 

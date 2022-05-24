@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Commande.Adapter.AddReclamation">
+    tools:context=".Reclamation.AddReclamation">
 
 
     <TextView
@@ -36,9 +36,6 @@
         app:layout_constraintLeft_toLeftOf="@id/TRec"
         app:layout_constraintTop_toBottomOf="@+id/TRec"
         tools:ignore="MissingConstraints">
-
-
-
     </RelativeLayout>
 
     <TextView
