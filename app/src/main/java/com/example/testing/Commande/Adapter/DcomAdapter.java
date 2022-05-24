@@ -19,6 +19,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import static com.example.testing.Profile.MainActivity.BASE_URL_IMAGE;
+
 public class DcomAdapter extends RecyclerView.Adapter<DcomAdapter.DcomViewHolder>{
     List<Dcommande> listDc;
     Context context;
@@ -43,13 +45,14 @@ public class DcomAdapter extends RecyclerView.Adapter<DcomAdapter.DcomViewHolder
         holder.quantite.setText(String.valueOf(DC.getQuantite()));
         holder.nomProd.setText(DC.getProduit());
 
-        Picasso.get().load("http://192.168.43.178:5000/uploads/"+DC.image_produit).into(holder.imageProd);
-        holder.prix.setText(String.valueOf(DC.getPrix()));
+        Picasso.get().load(BASE_URL_IMAGE+"uploads/"+DC.image_produit).into(holder.imageProd);
+        holder.prix.setText(Double.toString(DC.getPrix()));
         holder.nomUnite.setText(DC.getUnite());
         Dcommande detcom = listDc.get(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(context, listDc.get(position).getProduit(), Toast.LENGTH_LONG).show();
 
             }

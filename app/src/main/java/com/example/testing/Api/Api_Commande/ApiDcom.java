@@ -11,6 +11,6 @@ import retrofit.http.Query;
 
 public interface ApiDcom {
 
-    @GET("commandesP/GetAllcommandesP/:id_com")
+    @GET("commandesP/GetAllcommandesPA/:id_com")
     Call<List<Dcommande>> getdetailstByIdCom(@Query("id_com") int id_com);
 }

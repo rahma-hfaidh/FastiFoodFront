@@ -45,7 +45,7 @@ public class DetailCommande extends AppCompatActivity {
                 if (response.isSuccess()) {
                 listcom=(List<Dcommande>)  response.body();
 
-                System.out.println("list "+listcom);
+                System.out.println("listtttttttttttttttttttttttttttttttttttttttttttttttt "+listcom);
 
                 // on récupére notre Recyclerview via son id
                 rv_dcom = findViewById(R.id.rcv_detcom);

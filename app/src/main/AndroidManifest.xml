@@ -25,11 +25,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Commande.Adapter.AjouterAREcActivity"></activity>
+        <activity android:name=".G_Produit.listMenuRestauByCat"></activity>
+        <activity android:name=".Commande.Adapter.AjouterAREcActivity" />
         <activity android:name=".Commande.Adapter.AddReclamation" />
         <activity android:name=".Commande.selectmultipleActivity" />
-        <activity android:name=".Promotion.UploadImagePromoActivity" />
-        <activity android:name=".Promotion.addPromotion" />
+        <activity android:name=".PromotionP.UploadImagePromoActivity" />
+        <activity android:name=".PromotionP.addPromotion" />
         <activity android:name=".G_Panier.PanierActivity" />
         <activity android:name=".Reclamation.ReclamationActivity" />
         <activity android:name=".Calendrier.Commandesj" />
@@ -57,6 +58,7 @@
         <activity android:name=".G_Produit.CategorieActivity" />
         <activity android:name=".G_Produit.DetailProdActivity" />
         <activity android:name=".G_Produit.MenuActivity" />
+
         <activity android:name=".Profile.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -14,6 +14,7 @@ import com.example.testing.G_Produit.CategorieActivity;
 import com.example.testing.G_Produit.DetailProdActivity;
 import com.example.testing.G_Produit.ListCategorieClientActivity;
 import com.example.testing.G_Produit.MenuActivity;
+import com.example.testing.G_Produit.listMenuRestauByCat;
 import com.example.testing.R;
 import com.example.testing.Reclamation.ReclamationActivity;
 
@@ -23,17 +24,27 @@ public class MainActivity extends AppCompatActivity {
     Button godetail;
     Button goadd,goTest,ListCat;
 
-    public static final String BASE_URL_IMAGE="http://192.168.43.178:5000/";
+    public static final String BASE_URL_IMAGE="172.16.13.38:5000/";
 
     Button gocalendar;
     Button goreclamtion;
-    Button SelectMultiple;
+    Button SelectMultiple ,catRestau;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        catRestau=(Button) findViewById(R.id.gocatR);
+        catRestau.setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(getApplicationContext(), listMenuRestauByCat.class);
+                startActivity(i);
+
+            }
+        });
+
         SelectMultiple=(Button) findViewById(R.id.SM);
-        SelectMultiple.setOnClickListener(new View.OnClickListener() {
+        SelectMultiple.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i =new Intent(getApplicationContext(), selectmultipleActivity.class);

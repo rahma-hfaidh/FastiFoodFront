@@ -39,14 +39,14 @@ public class comRAdapter extends RecyclerView.Adapter<comRAdapter.ComViewHolder>
 
     List<commandeRestau> listCom;
     Context context;
-    private selectmultipleActivity mainActivity;
+   // private selectmultipleActivity mainActivity;
 
 
     public comRAdapter(List<commandeRestau> listCom, Context context) {
 
         this.listCom = listCom;
         this.context = context;
-        this.mainActivity=(selectmultipleActivity ) context;
+        //this.mainActivity=(selectmultipleActivity ) context;
 
 
 
@@ -65,7 +65,7 @@ public class comRAdapter extends RecyclerView.Adapter<comRAdapter.ComViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ComViewHolder holder, int position) {
-
+/*
         if(mainActivity.position == position){
             holder.checkBox.setChecked(true);
             mainActivity.position = -1;
@@ -89,7 +89,7 @@ public class comRAdapter extends RecyclerView.Adapter<comRAdapter.ComViewHolder>
         holder.checkBox.setOnClickListener(v -> {
             mainActivity.check(v,position);
         } );
-
+*/
         commandeRestau com = listCom.get(position);
         holder.modepaye.setText(com.getMode_payement());
         holder.date.setText(com.getDate().substring(0,15));

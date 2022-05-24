@@ -28,10 +28,9 @@ import retrofit.Retrofit;
 
 import static com.example.testing.Profile.MainActivity.BASE_URL_IMAGE;
 
-
-public class MenuByCatAdapter extends ArrayAdapter {
+public class menuByCatRestau extends ArrayAdapter {
     List<Produit> MenuByCatList= new ArrayList<>();
-    public MenuByCatAdapter(@NonNull Context context, int resource, @NonNull List objects) {
+    public menuByCatRestau(@NonNull Context context, int resource, @NonNull List objects) {
         super(context, resource, objects);
         MenuByCatList= objects;
     }
@@ -45,9 +44,9 @@ public class MenuByCatAdapter extends ArrayAdapter {
 
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.menubycatitem, null);
+        v = inflater.inflate(R.layout.menurestauitem, null);
         TextView textView = (TextView) v.findViewById(R.id.titreMenuItem);
-        ImageView imageView = (ImageView) v.findViewById(R.id.imageMenuItem);
+        ImageView imageView = (ImageView) v.findViewById(R.id.imageProd);
         textView.setText(MenuByCatList.get(position).getNomProd());
 
         v.setOnClickListener(new View.OnClickListener() {
@@ -72,8 +71,8 @@ public class MenuByCatAdapter extends ArrayAdapter {
             public void onResponse(Response<String> response, Retrofit retrofit) {
                 String picture=response.body();
 
-              Picasso.get().load(BASE_URL_IMAGE+"uploads/"+picture).into(imageView);
-            //    Picasso.get().load("http://172.16.23.70:5000/images/"+picture).into(imageView);
+                Picasso.get().load(BASE_URL_IMAGE+"uploads/"+picture).into(imageView);
+                //    Picasso.get().load("http://172.16.23.70:5000/images/"+picture).into(imageView);
 
             }
 

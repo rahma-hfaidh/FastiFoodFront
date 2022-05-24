@@ -8,7 +8,7 @@ import retrofit.Retrofit;
 public class ApiClient {
 
 
-    private static final String BASE_URL="http://192.168.43.178:5000/";
+    private static final String BASE_URL="http://172.16.13.38:5000/";
 
 
 

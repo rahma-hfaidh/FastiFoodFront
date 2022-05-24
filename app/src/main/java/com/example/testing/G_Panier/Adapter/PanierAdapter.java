@@ -116,7 +116,7 @@ Integer qntapr = myDatabase.cartDao().getqntapr(panier.getId_prod());
                 int  prxx= prixprod*qntapr;
                 holder.prixprod.setText(String.valueOf(prxx)+" DT");
                 prixTotal-=pr;
-                System.out.println("prixxxxxxxxxxxxxxxxxxx total   "+prixTotal);
+                System.out.println("prix total   "+prixTotal);
                 Intent intent = new Intent("custom-message");
                 intent.putExtra("prr",prixTotal);
                 LocalBroadcastManager.getInstance(context).sendBroadcast(intent);

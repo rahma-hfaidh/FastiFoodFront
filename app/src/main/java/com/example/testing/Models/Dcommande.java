@@ -6,18 +6,18 @@ public class Dcommande {
     public  String produit;
     public  String unite;
     public String image_produit;
-    public  int prix;
+    public  double prixProd;
 
     public Dcommande() {
     }
 
-    public Dcommande(int id_detailCom, int quantite, String produit, String unite, String image_produit, int prix) {
+    public Dcommande(int id_detailCom, int quantite, String produit, String unite, String image_produit, double prixProd) {
         this.id_detailCom = id_detailCom;
         this.quantite = quantite;
         this.produit = produit;
         this.unite = unite;
         this.image_produit = image_produit;
-        this.prix = prix;
+        this.prixProd = prixProd;
     }
 
     public int getId_detailCom() {
@@ -60,11 +60,11 @@ public class Dcommande {
         this.image_produit = image_produit;
     }
 
-    public int getPrix() {
-        return prix;
+    public double getPrix() {
+        return prixProd;
     }
 
-    public void setPrix(int prix) {
-        this.prix = prix;
+    public void setPrix(double prix) {
+        this.prixProd = prix;
     }
 }
