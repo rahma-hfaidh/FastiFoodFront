@@ -227,6 +227,7 @@ public class DetailProdActivity extends AppCompatActivity {
                 cart.setNomRest(nomRest.designation);
                 cart.setNomProd(nomProd);
                 cart.setPrixProd(prix);
+                cart.setQuantite(1);
                 if (ListMenuByIdCatActivity.myDatabase.cartDao().isAddToCart(id_prod)!=1){
                     ListMenuByIdCatActivity.myDatabase.cartDao().addToCart(cart);
                     Intent i = new Intent(getApplicationContext(),PanierActivity.class);
