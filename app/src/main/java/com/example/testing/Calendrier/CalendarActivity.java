@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +19,15 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class CalendarActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener {
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
-    private LocalDate selectedDate ;
+    private LocalDate selectedDate;
+    Button Avant;
+
     Dialog dialog;
 
 
@@ -34,6 +39,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         initwidgets();
         selectedDate = LocalDate.now();
         setMonthView();
+        Avant=(Button)findViewById(R.id.btnav);
     }
 
 
@@ -44,8 +50,13 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
     }
     private void setMonthView() {
         monthYearText.setText(monthYearFromDatee(selectedDate));
+
+
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
+
+
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth,this);
+
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
@@ -53,7 +64,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
     }
 
     private String monthYearFromDatee(LocalDate date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM YYYY");
         return date.format(formatter);
 
     }
@@ -62,19 +73,42 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         ArrayList<String> daysInMonthArray = new ArrayList<>();
         YearMonth yearMonth = YearMonth.from(date);
         int daysInMonth = yearMonth.lengthOfMonth();
-        LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
+
+        LocalDate firstOfMonth = selectedDate.withDayOfMonth(7);
+
+
         int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
+
+
+
+
+
         for (int i=0;i <= 42;i++){
-            if(i<= dayOfWeek || i>daysInMonth + dayOfWeek){
+            if(i<= dayOfWeek || i>daysInMonth + dayOfWeek  ){
+                System.out.println("date maintenant "+ selectedDate.getDayOfMonth());
+
+
                 daysInMonthArray.add("");
 
             }else {
-                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
+                int dateDay= i-dayOfWeek;
+             String   day=String.valueOf(dateDay);
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int mouth = cal.get(Calendar.MONTH)+1;
+                System.out.println("month:"+mouth);
+                if (selectedDate.getMonthValue()==mouth && selectedDate.getYear()==year) {
+                    if (selectedDate.getDayOfMonth()>dateDay){
+                       day="";
+                    }
+                }
+                daysInMonthArray.add(day);
 
             }
         }
         return daysInMonthArray;
     }
+
     private String monthYearFromDate(LocalDate date ){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM");
         return date.format(formatter);
@@ -95,6 +129,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
     public void onItemClick(int position, String dayText) {
         if(!dayText.equals("")){
             String mesagee= "selected Date "+monthYearFromDate(selectedDate)+"-"+dayText;
+
             Toast.makeText(this,mesagee,Toast.LENGTH_LONG).show();
         }
         Intent intent = new Intent(this, Commandesj.class);

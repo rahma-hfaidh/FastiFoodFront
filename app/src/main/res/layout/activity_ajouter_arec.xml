@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Commande.Adapter.AjouterAREcActivity">
+    tools:context=".Reclamation.AjouterAREcActivity">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,10 +13,40 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/Res"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/img_back"
+        app:layout_constraintTop_toBottomOf="@+id/img_back"
+
+        android:text="Responsable :"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:id="@+id/choiceTR"
+        android:layout_marginTop="25dp"
+        app:layout_constraintLeft_toLeftOf="@id/Res"
+        app:layout_constraintTop_toBottomOf="@+id/Res"
+        tools:ignore="MissingConstraints">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurant"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coursier"/>
+    </RadioGroup>
     <EditText
 
         android:id="@+id/type_rec"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="150dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Entrer type de reclamation"

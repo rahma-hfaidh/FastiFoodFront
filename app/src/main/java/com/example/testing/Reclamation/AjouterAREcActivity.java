@@ -1,13 +1,17 @@
-package com.example.testing.Commande.Adapter;
+package com.example.testing.Reclamation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.testing.Api.Api_Client.ApiClient;
@@ -22,17 +26,33 @@ import retrofit.Retrofit;
 
 public class AjouterAREcActivity extends AppCompatActivity {
     public int id_com;
+    public String id_tr;
     ImageView imgBack;
     EditText Designation_rec,descr_rec;
     String designation,description;
     Button sendAR;
+    RadioGroup rg;
+    RadioButton rb;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouter_arec);
         imgBack=(ImageView)findViewById(R.id.img_back);
         sendAR=(Button)findViewById(R.id.sendreclm);
+        rg= (RadioGroup) findViewById(R.id.choiceTR);
+        rb=new RadioButton(this);
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton radioButton = (RadioButton) findViewById(checkedId);
+                id_tr= ( String ) radioButton.getText();
+                System.out.println(id_tr);
+
+                Toast.makeText(getApplicationContext(),radioButton.getText(),Toast.LENGTH_LONG).show();
+            }
+        });
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +81,7 @@ public class AjouterAREcActivity extends AppCompatActivity {
                 designation= Designation_rec.getText().toString();
                 description= descr_rec.getText().toString();
                 ApiRec api = ApiClient.getClient().create(ApiRec.class);
-                Call<String> postAutretReclamation = (Call<String>) api.PostTR(designation,"Restaurant",description);
+                Call<String> postAutretReclamation = (Call<String>) api.PostTR(designation,id_tr,description);
                 postAutretReclamation.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Response<String> response, Retrofit retrofit) {

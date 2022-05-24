@@ -1,4 +1,4 @@
-package com.example.testing.Commande.Adapter;
+package com.example.testing.Reclamation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,11 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.testing.Api.Api_Client.ApiClient;
-import com.example.testing.Api.Api_GProduit.ApiCategorie;
-import com.example.testing.Api.Api_GProduit.ApiProduit;
 import com.example.testing.Api.Api_Reclamation.ApiRec;
-import com.example.testing.G_Produit.AjouterProduitActivity;
-import com.example.testing.Models.Categorie;
 import com.example.testing.Models.Reclamations;
 import com.example.testing.R;
 

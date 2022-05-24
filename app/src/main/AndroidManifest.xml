@@ -25,8 +25,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testing"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Commande.Adapter.AjouterAREcActivity"></activity>
-        <activity android:name=".Commande.Adapter.AddReclamation" />
+        <activity android:name=".G_Panier.FUcommande"></activity>
+        <activity android:name=".G_Panier.ModePayement" />
+        <activity android:name=".G_Panier.ModeLivraison" />
+        <activity android:name=".Reclamation.AjouterAREcActivity" />
+        <activity android:name=".Reclamation.AddReclamation" />
         <activity android:name=".Commande.selectmultipleActivity" />
         <activity android:name=".Promotion.UploadImagePromoActivity" />
         <activity android:name=".Promotion.addPromotion" />

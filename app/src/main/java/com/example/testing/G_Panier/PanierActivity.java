@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,11 +34,22 @@ public class PanierActivity extends AppCompatActivity {
     TextView tvcount,prixTotal;
     ImageView back;
     Float prixx=0f;
+    private Button commander;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panier);
-       listPanier = new ArrayList<Cart>();
+        commander =(Button) findViewById(R.id.btnvcommande);
+        //Vers page mode de livraison
+        commander.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(), ModeLivraison.class);
+                startActivity(i);
+            }
+        });
+
+        listPanier = new ArrayList<Cart>();
         listPanier= ListMenuByIdCatActivity.myDatabase.cartDao().getData();
 
        // listPanier.add(new Cart(1,"cheeseCake",R.drawable.cheesecake,"restau",12,5));

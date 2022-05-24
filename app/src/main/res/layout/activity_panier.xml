@@ -87,6 +87,7 @@
             android:background="@drawable/white_recatnge_panier"
             android:layout_below="@+id/TotalPrice"
             android:text="Valider Panier"
+            android:id="@+id/btnvcommande"
             tools:ignore="NotSibling" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
