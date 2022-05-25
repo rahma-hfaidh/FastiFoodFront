@@ -35,14 +35,6 @@
         <activity android:name=".Reclamation.AddReclamation" />
 
         <activity android:name=".NotifActivity"></activity>
-        <activity android:name=".PanierActivity" />
-        <activity android:name=".ListMenuByIdCatActivity" />
-        <activity android:name=".ListCategorieClientActivity" />
-        <activity android:name=".AcceptRefuseActivity" />
-        <activity android:name=".DetailFacteur" />
-        <activity android:name=".UploadImageActivity" />
-        <activity android:name=".Commande.Adapter.AjouterAREcActivity"></activity>
-        <activity android:name=".Commande.Adapter.AddReclamation" />
 
         <activity android:name=".Commande.selectmultipleActivity" />
         <activity android:name=".PromotionP.UploadImagePromoActivity" />

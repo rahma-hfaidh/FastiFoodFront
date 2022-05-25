@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Button godetail;
     Button goadd,goTest,ListCat;
 
-    public static final String BASE_URL_IMAGE="172.16.13.38:5000/";
-  //  public static final String BASE_URL_IMAGE="http://172.16.13.46:5000/";
+    //public static final String BASE_URL_IMAGE="172.16.13.38:5000/";
+   public static final String BASE_URL_IMAGE="http://172.16.22.254:5000/";
 
     Button gocalendar;
     Button goreclamtion;

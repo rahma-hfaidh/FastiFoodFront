@@ -14,89 +14,90 @@
        android:text="go to cat restau"
        android:id="@+id/gocatR"
        />
+
    <ScrollView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:fillViewport="true">
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="vertical">
 
-   <Button
-       android:layout_marginTop="10dp"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:text="go to menu"
-       android:id="@+id/goMenu"
-      />
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/goMenu"
-       android:text="go to detail"
-       android:layout_centerInParent="true"
-       android:id="@+id/goDetail"
-       />
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:layout_below="@+id/goDetail"
-       android:text="go to add"
-       android:id="@+id/goAddProd"
-       />
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:layout_below="@+id/goAddProd"
-       android:text="test"
-       android:id="@+id/goTest"
-       />
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:layout_below="@+id/goTest"
-       android:text="ListCat"
-       android:id="@+id/goListCat"
-       />
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:layout_below="@+id/goListCat"
-       android:text="Notif"
-       android:id="@+id/goNotif"
-       />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
 
-       android:text="Calendrier"
-       android:id="@+id/goCalendar"
-       />
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:layout_below="@+id/goCalendar"
-       android:text="Reclamations"
-       android:id="@+id/goReclamation"
-       />
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-       android:layout_below="@+id/goReclamation"
-       android:text="multi select"
-       android:id="@+id/SM"
-       />
+         <Button
+             android:id="@+id/goMenu"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerInParent="true"
+             android:layout_marginTop="10dp"
+             android:text="go to menu" />
 
-   </LinearLayout>
+         <Button
+             android:id="@+id/goDetail"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/goMenu"
+             android:layout_centerInParent="true"
+             android:text="go to detail" />
+
+         <Button
+             android:id="@+id/goAddProd"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/goDetail"
+             android:layout_centerInParent="true"
+             android:text="go to add" />
+
+         <Button
+             android:id="@+id/goTest"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/goAddProd"
+             android:layout_centerInParent="true"
+             android:text="test" />
+
+         <Button
+             android:id="@+id/goListCat"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/goTest"
+             android:layout_centerInParent="true"
+             android:text="ListCat" />
+
+         <Button
+             android:id="@+id/goNotif"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/goListCat"
+             android:layout_centerInParent="true"
+             android:text="Notif" />
+
+         <Button
+             android:id="@+id/goCalendar"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+
+             android:layout_centerInParent="true"
+             android:text="Calendrier" />
+
+         <Button
+             android:id="@+id/goReclamation"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/goCalendar"
+             android:layout_centerInParent="true"
+             android:text="Reclamations" />
+
+         <Button
+             android:id="@+id/SM"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/goReclamation"
+             android:layout_centerInParent="true"
+             android:text="multi select" />
+
+      </LinearLayout>
 
    </ScrollView>
 </RelativeLayout>
